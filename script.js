@@ -1,17 +1,18 @@
 document.addEventListener('DOMContentLoaded', function() {
-  // Remove loader and reveal main content after cinematic delay
+  // Loader & Main Reveal
   setTimeout(function() {
     document.getElementById('loader').style.display = 'none';
     document.getElementById('main').style.display = 'block';
   }, 4000);
 
-  // IntersectionObserver for section animations
+  // IntersectionObserver for section animations (add/remove 'visible' for smooth reverse)
   const sections = document.querySelectorAll('.section');
-  const observer = new IntersectionObserver(entries => {
+  const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if(entry.isIntersecting) {
         entry.target.classList.add('visible');
-        observer.unobserve(entry.target);
+      } else {
+        entry.target.classList.remove('visible');
       }
     });
   }, { threshold: 0.3 });
@@ -22,16 +23,14 @@ document.addEventListener('DOMContentLoaded', function() {
     document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
   };
 
-  // Mouse-based background movement (subtle parallax effect)
+  // Mouse-based Background Parallax
   document.addEventListener('mousemove', function(e) {
-    const x = (e.clientX / window.innerWidth) * 10;
-    const y = (e.clientY / window.innerHeight) * 10;
-    document.body.style.setProperty('--bg-move-x', `${x}px`);
-    document.body.style.setProperty('--bg-move-y', `${y}px`);
-    document.querySelector('body::before'); // For triggering CSS variable update
+    const x = (e.clientX / window.innerWidth - 0.5) * 20;
+    const y = (e.clientY / window.innerHeight - 0.5) * 20;
+    document.body.style.transform = `translate(${x}px, ${y}px)`;
   });
 
-  // Dynamic Music Visualizer – Generate neon bars
+  // Dynamic Music Visualizer: Create neon bars pulsing with raw energy
   const visualizer = document.getElementById('music-visualizer');
   for(let i = 0; i < 70; i++) {
     const bar = document.createElement('div');
@@ -41,7 +40,7 @@ document.addEventListener('DOMContentLoaded', function() {
     visualizer.appendChild(bar);
   }
 
-  // Decrypt Contact Section: Reveal form after "decryption"
+  // Decrypt Contact Section: Reveal secure contact form
   window.decryptContact = function() {
     document.getElementById('contact-lockdown').style.display = 'none';
     document.getElementById('contact-form').style.display = 'flex';
@@ -58,14 +57,15 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   };
 
-  // Optional: Additional hover glitch for grid items
+  // Optional: Glitch hover effect on grid items for extra luxury
   const gridItems = document.querySelectorAll('.grid-item');
   gridItems.forEach(item => {
     item.addEventListener('mouseenter', () => {
-      const originalText = item.innerHTML;
-      item.innerHTML = `<span class="glitch-hover">${item.getAttribute('data-decrypt') || item.getAttribute('data-glitch')}</span>`;
+      const originalHTML = item.innerHTML;
+      const glitchText = item.getAttribute('data-decrypt') || item.getAttribute('data-glitch') || '';
+      item.innerHTML = `<span class="glitch-hover">${glitchText}</span>`;
       setTimeout(() => {
-        item.innerHTML = originalText;
+        item.innerHTML = originalHTML;
       }, 800);
     });
   });
