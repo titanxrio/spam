@@ -1,26 +1,25 @@
-// ==========================================================================
+// =========================================================================
 // TITAN – 100% DOMINATION JavaScript
-// ==========================================================================
-// Dieser Code steuert den Preloader, Smooth Scrolling, Partikel-Animationen,
-// Glitch-Effekte, dynamische Overlays und interaktive Hover-Animationen,
-// die dir Gänsehaut verpassen. Jeder Abschnitt ist darauf ausgelegt, die
-// absolute Macht von TITAN zu demonstrieren.
-// ==========================================================================
+// =========================================================================
+// Dieser Code steuert Preloader, Smooth Scrolling, Partikel-, Glitch- und
+// Overlay-Effekte sowie interaktive Hover-Animationen. Jeder Pixel lebt,
+// pulsiert und zeigt Dominanz!
+// =========================================================================
+
 document.addEventListener("DOMContentLoaded", function() {
-  // Preloader ausblenden
+  // Preloader-Funktion
   const preloader = document.getElementById('preloader');
   setTimeout(() => {
     preloader.style.opacity = '0';
     setTimeout(() => { preloader.style.display = 'none'; }, 500);
   }, 2000);
 
-  // Smooth Scrolling-Funktion
+  // Smooth Scrolling für Navigation & "Enter My Domain"-Button
   function smoothScroll(targetID) {
     const target = document.getElementById(targetID);
     target.scrollIntoView({ behavior: 'smooth' });
   }
   
-  // Navigation Click Event
   const navLinks = document.querySelectorAll('nav ul li a');
   navLinks.forEach(link => {
     link.addEventListener('click', function(e) {
@@ -32,7 +31,6 @@ document.addEventListener("DOMContentLoaded", function() {
     });
   });
   
-  // "Enter My Domain"-Button
   const enterBtn = document.getElementById('enterBtn');
   if (enterBtn) {
     enterBtn.addEventListener('click', function() {
@@ -40,20 +38,20 @@ document.addEventListener("DOMContentLoaded", function() {
     });
   }
   
-  // Partikel-Effekt (Erzeuge hunderte Partikel)
+  // Partikel-Effekt: Erzeuge 200 Partikel, die dynamisch animieren
   const particlesContainer = document.querySelector('.particles');
   let particles = [];
   const particleCount = 200;
-  function createParticles() {
+  function initParticles() {
     for (let i = 0; i < particleCount; i++) {
-      const p = document.createElement('div');
-      p.classList.add('particle');
-      p.style.left = Math.random() * 100 + '%';
-      p.style.top = Math.random() * 100 + '%';
-      p.style.width = p.style.height = Math.random() * 4 + 1 + 'px';
-      p.style.opacity = Math.random();
-      particlesContainer.appendChild(p);
-      particles.push(p);
+      const particle = document.createElement('div');
+      particle.classList.add('particle');
+      particle.style.left = Math.random() * 100 + '%';
+      particle.style.top = Math.random() * 100 + '%';
+      particle.style.width = particle.style.height = Math.random() * 4 + 1 + 'px';
+      particle.style.opacity = Math.random();
+      particlesContainer.appendChild(particle);
+      particles.push(particle);
     }
   }
   function animateParticles() {
@@ -66,7 +64,7 @@ document.addEventListener("DOMContentLoaded", function() {
     });
     requestAnimationFrame(animateParticles);
   }
-  if (particlesContainer) { createParticles(); animateParticles(); }
+  if (particlesContainer) { initParticles(); animateParticles(); }
   
   // Glitch-Effekt Randomizer
   function randomGlitch() {
@@ -79,7 +77,7 @@ document.addEventListener("DOMContentLoaded", function() {
   }
   setInterval(randomGlitch, 2500);
   
-  // Overlay Scroll-Effekt
+  // Overlay-Scroll-Effekt: Passe Overlay-Animation an den Scroll-Wert an
   const animOverlay = document.querySelector('.anim-overlay');
   window.addEventListener('scroll', function() {
     let scrollPos = window.pageYOffset;
@@ -99,9 +97,9 @@ document.addEventListener("DOMContentLoaded", function() {
     });
   }
   
-  // Hover-Animation für DOM-Boxen und andere interaktive Elemente
-  const interactiveElems = document.querySelectorAll('.dom-box, .particle, .product-card');
-  interactiveElems.forEach(el => {
+  // Interaktive Hover-Animationen für DOM-Boxen, ZEROBYTE-Boxen und andere Elemente
+  const hoverElems = document.querySelectorAll('.dom-box, .zb-box, .particle');
+  hoverElems.forEach(el => {
     el.addEventListener('mouseover', function() {
       this.style.transform = 'scale(1.25)';
       this.style.transition = 'transform 0.3s ease';
@@ -111,10 +109,22 @@ document.addEventListener("DOMContentLoaded", function() {
     });
   });
   
-  // Responsive Anpassung bei Fenstergröße-Änderung (Debugging)
+  // Zusätzliche zufällige Animationen für kleine Elemente (jeder Pixel zählt!)
+  function randomPixelAnimation() {
+    const allElems = document.querySelectorAll('body *');
+    allElems.forEach(el => {
+      if (Math.random() < 0.05) {
+        el.style.transition = 'transform 0.3s ease';
+        el.style.transform = `rotate(${Math.random()*10 - 5}deg)`;
+        setTimeout(() => { el.style.transform = 'rotate(0deg)'; }, 300);
+      }
+    });
+  }
+  setInterval(randomPixelAnimation, 5000);
+  
+  // Responsive Anpassung bei Fenstergrößenänderung (Debugging & Anpassungen)
   window.addEventListener('resize', function() {
     console.log(`Window resized: ${window.innerWidth} x ${window.innerHeight}`);
-    // Hier können weitere responsive Anpassungen implementiert werden.
   });
   
   console.log("TITAN – Domination script loaded. Prepare to be overwhelmed.");
