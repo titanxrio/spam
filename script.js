@@ -1,47 +1,46 @@
-document.addEventListener("DOMContentLoaded", function() {
-  // Hide loader and reveal main content after cinematic boot sequence
+document.addEventListener('DOMContentLoaded', function() {
+  // Loader and main content control
   setTimeout(function() {
     document.getElementById('loader').style.display = 'none';
-    document.getElementById('main-content').style.display = 'block';
-  }, 4000); // 4-second delay for maximum impact
-  
-  // Animate sections on scroll using IntersectionObserver
+    document.getElementById('main').style.display = 'block';
+  }, 4000); // 4-second loader for maximum impact
+
+  // IntersectionObserver for cinematic section animations
   const sections = document.querySelectorAll('.section');
-  const observer = new IntersectionObserver(entries => {
+  const observerOptions = { threshold: 0.3 };
+  const observer = new IntersectionObserver((entries, obs) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         entry.target.classList.add('visible');
-        observer.unobserve(entry.target);
+        obs.unobserve(entry.target);
       }
     });
-  }, { threshold: 0.2 });
-  sections.forEach(section => {
-    observer.observe(section);
-  });
-  
-  // Smooth scroll for navigation (accessible via inline onclick handlers)
-  window.scrollToSection = function(sectionId) {
-    document.getElementById(sectionId).scrollIntoView({ behavior: 'smooth' });
+  }, observerOptions);
+  sections.forEach(section => observer.observe(section));
+
+  // Smooth scroll on navigation click
+  window.scrollToSection = function(id) {
+    document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
   };
-  
-  // Contact form passcode validation
+
+  // Passcode validation for secure access
   window.validatePasscode = function(e) {
     e.preventDefault();
     const passcode = document.getElementById('passcode').value;
-    if (passcode === 'TITAN2025') {
+    if(passcode === 'TITAN2025') {
       alert('Access Granted. Welcome to the Titan Network.');
     } else {
       alert('Access Denied. Incorrect Passcode.');
     }
   };
-  
-  // Dynamic Music Visualizer: Generate neon bars that pulse with raw energy
+
+  // Dynamic Music Visualizer: Create neon bars pulsing with raw energy
   const visualizer = document.getElementById('music-visualizer');
-  for (let i = 0; i < 80; i++) {
+  for (let i = 0; i < 70; i++) {
     const bar = document.createElement('div');
     bar.classList.add('bar');
-    bar.style.left = (i * 1.25) + '%';
-    bar.style.animationDelay = (i * 0.05) + 's';
+    bar.style.left = (i * 1.5) + '%';
+    bar.style.animationDelay = (i * 0.04) + 's';
     visualizer.appendChild(bar);
   }
 });
