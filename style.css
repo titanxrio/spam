@@ -1,6 +1,9 @@
 /* ==========================================================================
    TITAN – 100% DOMINATION Stylesheet
+   ==========================================================================
+   Jeder einzelne Pixel wird animiert. Keine Zeile bleibt unbewegt.
    ========================================================================== */
+
 /* RESET & BASIS */
 * { margin: 0; padding: 0; box-sizing: border-box; }
 html, body { width: 100%; height: 100%; overflow-x: hidden; }
@@ -29,7 +32,7 @@ nav ul li a::after { content: ""; position: absolute; width: 0; height: 3px; bac
 nav ul li a:hover::after, nav ul li a.active::after { width: 100%; }
 nav ul li a:hover, nav ul li a.active { color: #fff; }
 
-/* SECTION COMMON STYLES */
+/* SECTION COMMON */
 .section { min-height: 100vh; padding: 140px 30px; display: flex; flex-direction: column; justify-content: center; align-items: center; position: relative; z-index: 1; }
 .section::before { content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.3); z-index: -1; }
 
@@ -53,9 +56,9 @@ nav ul li a:hover, nav ul li a.active { color: #fff; }
 @keyframes glitchTop { 0% { transform: translate(0); } 20% { transform: translate(-4px, -4px); } 40% { transform: translate(-4px, 4px); } 60% { transform: translate(4px, -4px); } 80% { transform: translate(4px, 4px); } 100% { transform: translate(0); } }
 @keyframes glitchBottom { 0% { transform: translate(0); } 20% { transform: translate(4px, 4px); } 40% { transform: translate(4px, -4px); } 60% { transform: translate(-4px, 4px); } 80% { transform: translate(-4px, -4px); } 100% { transform: translate(0); } }
 
-/* PARTICLES */
-.particles { position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; background: transparent; }
-.particle { position: absolute; background: #1e90ff; opacity: 0.7; border-radius: 50%; }
+/* CANVAS-PARTIKEL & BACKGROUND */
+#bgCanvas { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -2; }
+.particles { display: none; } /* Wir nutzen jetzt den Canvas */
 
 /* ANIM OVERLAY */
 .anim-overlay { position: absolute; bottom: 0; left: 0; width: 100%; height: 200px; background: linear-gradient(0deg, rgba(0,0,0,1) 0%, transparent 100%); animation: slideUp 3s infinite; }
@@ -76,17 +79,31 @@ nav ul li a:hover, nav ul li a.active { color: #fff; }
 .zerobyte-section { background: #0a0a0a; text-align: center; padding: 140px 30px; }
 .zerobyte-section h2 { font-size: 5rem; margin-bottom: 20px; color: #1e90ff; text-shadow: 0 0 30px #1e90ff; }
 .zerobyte-section p { font-size: 2.2rem; max-width: 900px; margin: 0 auto 50px; line-height: 1.6; }
-.zerobyte-animation { display: flex; justify-content: center; gap: 25px; flex-wrap: wrap; }
-.zb-box { width: 160px; height: 160px; background: #1e90ff; border: 2px solid #fff; border-radius: 12px; animation: zbPulse 2s infinite; }
-@keyframes zbPulse { 0% { transform: scale(1); opacity: 0.8; } 50% { transform: scale(1.4); opacity: 1; } 100% { transform: scale(1); opacity: 0.8; } }
+/* Statt pulsierender Vierecke: Fließende Partikel, die in Form und Größe variieren */
+.zerobyte-particles {
+  position: relative; width: 100%; height: 300px; overflow: hidden;
+}
+.zerobyte-particles::before {
+  content: "";
+  position: absolute; width: 150%; height: 150%;
+  background: radial-gradient(circle, rgba(30,144,255,0.5), transparent);
+  animation: zbFlow 6s linear infinite;
+}
+@keyframes zbFlow {
+  from { transform: translate(-20%, -20%) scale(1); }
+  to { transform: translate(20%, 20%) scale(1.2); }
+}
 
 /* DOMINATION SECTION */
 .domination-section { background: #000; text-align: center; padding: 140px 30px; }
 .domination-section h2 { font-size: 5rem; margin-bottom: 20px; color: #1e90ff; text-shadow: 0 0 30px #1e90ff; }
 .domination-section p { font-size: 2.2rem; max-width: 900px; margin: 0 auto 50px; line-height: 1.6; }
 .dom-animation { display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; }
-.dom-box { width: 180px; height: 180px; background: #1e90ff; opacity: 0.85; border-radius: 12px; animation: pulseBox 2.5s infinite; }
-@keyframes pulseBox { 0% { transform: scale(1); opacity: 0.85; } 50% { transform: scale(1.3); opacity: 1; } 100% { transform: scale(1); opacity: 0.85; } }
+.dom-shape {
+  width: 180px; height: 180px; background: radial-gradient(circle, #1e90ff, #000);
+  border-radius: 50%; animation: domPulse 3s infinite;
+}
+@keyframes domPulse { 0% { transform: scale(1); opacity: 0.85; } 50% { transform: scale(1.5); opacity: 1; } 100% { transform: scale(1); opacity: 0.85; } }
 
 /* CONTACT SECTION */
 .contact-section { background: #111; text-align: center; padding: 140px 30px; }
@@ -112,5 +129,5 @@ footer p { font-size: 1.8rem; color: #1e90ff; }
   nav ul li a { font-size: 1.4rem; }
   .about-section h2, .zerobyte-section h2, .domination-section h2, .contact-section h2 { font-size: 4rem; }
   .about-section p, .zerobyte-section p, .domination-section p, .contact-section p { font-size: 1.8rem; }
-  .dom-box { width: 150px; height: 150px; }
+  .dom-shape { width: 150px; height: 150px; }
 }
