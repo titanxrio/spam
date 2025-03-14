@@ -1,24 +1,26 @@
-// =========================================================================
-// TITAN – Ultimate Domination JS
-// =========================================================================
-// Dieser Code steuert den Preloader, Smooth Scrolling, Partikelanimationen
-// und weitere interaktive Effekte, die dir Gänsehaut verpassen.
-// =========================================================================
-
+// ==========================================================================
+// TITAN – 100% DOMINATION JavaScript
+// ==========================================================================
+// Dieser Code steuert den Preloader, Smooth Scrolling, Partikel-Animationen,
+// Glitch-Effekte, dynamische Overlays und interaktive Hover-Animationen,
+// die dir Gänsehaut verpassen. Jeder Abschnitt ist darauf ausgelegt, die
+// absolute Macht von TITAN zu demonstrieren.
+// ==========================================================================
 document.addEventListener("DOMContentLoaded", function() {
-  // Preloader-Funktion
+  // Preloader ausblenden
   const preloader = document.getElementById('preloader');
   setTimeout(() => {
     preloader.style.opacity = '0';
     setTimeout(() => { preloader.style.display = 'none'; }, 500);
   }, 2000);
 
-  // Smooth Scrolling für Navigation und "Enter the Domain"-Button
+  // Smooth Scrolling-Funktion
   function smoothScroll(targetID) {
-    const targetSection = document.getElementById(targetID);
-    targetSection.scrollIntoView({ behavior: 'smooth' });
+    const target = document.getElementById(targetID);
+    target.scrollIntoView({ behavior: 'smooth' });
   }
-
+  
+  // Navigation Click Event
   const navLinks = document.querySelectorAll('nav ul li a');
   navLinks.forEach(link => {
     link.addEventListener('click', function(e) {
@@ -29,32 +31,31 @@ document.addEventListener("DOMContentLoaded", function() {
       this.classList.add('active');
     });
   });
-
+  
+  // "Enter My Domain"-Button
   const enterBtn = document.getElementById('enterBtn');
   if (enterBtn) {
     enterBtn.addEventListener('click', function() {
       smoothScroll('about');
     });
   }
-
-  // Partikel-Animation: Erstelle Partikel für den Hintergrund
+  
+  // Partikel-Effekt (Erzeuge hunderte Partikel)
   const particlesContainer = document.querySelector('.particles');
   let particles = [];
-  const particleCount = 150;
-
-  function initParticles() {
+  const particleCount = 200;
+  function createParticles() {
     for (let i = 0; i < particleCount; i++) {
-      let particle = document.createElement('div');
-      particle.classList.add('particle');
-      particle.style.left = Math.random() * 100 + '%';
-      particle.style.top = Math.random() * 100 + '%';
-      particle.style.opacity = Math.random();
-      particle.style.width = particle.style.height = Math.random() * 4 + 1 + 'px';
-      particlesContainer.appendChild(particle);
-      particles.push(particle);
+      const p = document.createElement('div');
+      p.classList.add('particle');
+      p.style.left = Math.random() * 100 + '%';
+      p.style.top = Math.random() * 100 + '%';
+      p.style.width = p.style.height = Math.random() * 4 + 1 + 'px';
+      p.style.opacity = Math.random();
+      particlesContainer.appendChild(p);
+      particles.push(p);
     }
   }
-
   function animateParticles() {
     particles.forEach(p => {
       let speed = 0.5 + Math.random();
@@ -65,52 +66,44 @@ document.addEventListener("DOMContentLoaded", function() {
     });
     requestAnimationFrame(animateParticles);
   }
-  if (particlesContainer) {
-    initParticles();
-    animateParticles();
-  }
-
-  // Extra JS-Animation: Glitch effect randomizer
+  if (particlesContainer) { createParticles(); animateParticles(); }
+  
+  // Glitch-Effekt Randomizer
   function randomGlitch() {
     const glitchElems = document.querySelectorAll('.glitch');
     glitchElems.forEach(elem => {
-      let rand = Math.floor(Math.random() * 5);
-      elem.style.filter = `blur(${rand}px)`;
-      setTimeout(() => {
-        elem.style.filter = 'blur(0px)';
-      }, 200);
+      let blur = Math.floor(Math.random() * 4);
+      elem.style.filter = `blur(${blur}px)`;
+      setTimeout(() => { elem.style.filter = 'blur(0px)'; }, 150);
     });
   }
-  setInterval(randomGlitch, 3000);
-
-  // Window scroll effects for overlay animations
+  setInterval(randomGlitch, 2500);
+  
+  // Overlay Scroll-Effekt
+  const animOverlay = document.querySelector('.anim-overlay');
   window.addEventListener('scroll', function() {
-    const scrollPos = window.pageYOffset;
-    const animOverlay = document.querySelector('.anim-overlay');
+    let scrollPos = window.pageYOffset;
     if (animOverlay) {
-      animOverlay.style.opacity = 1 - scrollPos / 500;
-      animOverlay.style.transform = `translateY(${scrollPos / 3}px)`;
+      animOverlay.style.opacity = 1 - scrollPos / 600;
+      animOverlay.style.transform = `translateY(${scrollPos / 4}px)`;
     }
   });
-
-  // Contact Form Submission (dummy)
+  
+  // Kontaktformular: Dummy-Submission
   const contactForm = document.getElementById('contactForm');
   if (contactForm) {
     contactForm.addEventListener('submit', function(e) {
       e.preventDefault();
-      alert("Your message has been sent to TITAN. Prepare for domination.");
+      alert("Your tribute has been sent to TITAN. Prepare for the reckoning.");
       contactForm.reset();
     });
   }
-
-  // Debug Log
-  console.log("TITAN – Domination script loaded. Prepare to be overwhelmed.");
-
-  // Additional JS – Expanding animations for elements on hover (optional)
-  const hoverElements = document.querySelectorAll('.dom-box, .product-card');
-  hoverElements.forEach(el => {
+  
+  // Hover-Animation für DOM-Boxen und andere interaktive Elemente
+  const interactiveElems = document.querySelectorAll('.dom-box, .particle, .product-card');
+  interactiveElems.forEach(el => {
     el.addEventListener('mouseover', function() {
-      this.style.transform = 'scale(1.2)';
+      this.style.transform = 'scale(1.25)';
       this.style.transition = 'transform 0.3s ease';
     });
     el.addEventListener('mouseout', function() {
@@ -118,14 +111,11 @@ document.addEventListener("DOMContentLoaded", function() {
     });
   });
   
-  // Extra: Window resize listener for responsive adjustments (dummy extended code)
+  // Responsive Anpassung bei Fenstergröße-Änderung (Debugging)
   window.addEventListener('resize', function() {
-    console.log(`Window resized to ${window.innerWidth} x ${window.innerHeight}`);
-    // Hier könnten zusätzliche responsive Animationen oder Anpassungen erfolgen.
+    console.log(`Window resized: ${window.innerWidth} x ${window.innerHeight}`);
+    // Hier können weitere responsive Anpassungen implementiert werden.
   });
   
-  // End of Domination JS – Over 250 lines of epic code.
+  console.log("TITAN – Domination script loaded. Prepare to be overwhelmed.");
 });
-// =========================================================================
-// END OF SCRIPT
-// =========================================================================
