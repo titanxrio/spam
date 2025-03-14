@@ -1,9 +1,9 @@
 // =========================================================================
 // TITAN – 100% DOMINATION JavaScript
 // =========================================================================
-// Dieser Code steuert den Preloader, Smooth Scrolling, den Canvas-Partikel-
+// Dieser Code steuert Preloader, Smooth Scrolling, den Canvas-Partikel-
 // Hintergrund, zufällige Glitch-Effekte, Overlay-Animationen, den Audio-
-// Visualizer und alle interaktiven Hover-Effekte – hier reagiert jeder Pixel!
+// Visualizer und interaktive Hover-Effekte – hier reagiert jeder Pixel!
 // =========================================================================
 
 document.addEventListener("DOMContentLoaded", function() {
@@ -104,8 +104,8 @@ document.addEventListener("DOMContentLoaded", function() {
     }
   });
 
-  // Audio Player & Visualizer
-  const audioFileInput = document.getElementById('audioFile');
+  // Audio-Player & Visualizer
+  const playlistItems = document.querySelectorAll('.playlist li');
   const audioPlayer = document.getElementById('audioPlayer');
   const audioCanvas = document.getElementById('audioCanvas');
   const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
@@ -134,15 +134,29 @@ document.addEventListener("DOMContentLoaded", function() {
     }
   }
   drawAudioVisualizer();
-  audioFileInput.addEventListener('change', function() {
-    const files = this.files;
-    if (files.length > 0) {
-      const fileURL = URL.createObjectURL(files[0]);
-      audioPlayer.src = fileURL;
+
+  // Vordefinierte Playlist
+  const playlist = [
+    { title: "Track One", src: "track1.mp3" },
+    { title: "Track Two", src: "track2.mp3" },
+    { title: "Track Three", src: "track3.mp3" }
+  ];
+  // Playlist Klick-Event
+  playlistItems.forEach(item => {
+    item.addEventListener('click', function() {
+      const src = this.getAttribute('data-src');
+      audioPlayer.src = src;
       audioPlayer.play();
       audioCtx.resume();
-    }
+      // Markiere aktiven Track
+      playlistItems.forEach(i => i.classList.remove('active'));
+      this.classList.add('active');
+    });
   });
+  // Automatischer Start mit erstem Track
+  if (playlist.length > 0) {
+    audioPlayer.src = playlist[0].src;
+  }
 
   // Kontaktformular: Dummy-Submission
   const contactForm = document.getElementById('contactForm');
@@ -154,8 +168,8 @@ document.addEventListener("DOMContentLoaded", function() {
     });
   }
 
-  // Interaktive Hover-Animationen
-  const interactiveElems = document.querySelectorAll('.dom-shape, .shape, .project-card, .particle');
+  // Interaktive Hover-Animationen für dynamische Elemente
+  const interactiveElems = document.querySelectorAll('.dom-shape.smooth, .shape, .project-card, .particle');
   interactiveElems.forEach(el => {
     el.addEventListener('mouseover', function() {
       this.style.transform = 'scale(1.25)';
@@ -179,7 +193,7 @@ document.addEventListener("DOMContentLoaded", function() {
   }
   setInterval(randomPixelAnimation, 5000);
 
-  // Responsive Anpassung bei Fenstergrößenänderung
+  // Responsive Anpassung
   window.addEventListener('resize', function() {
     resizeCanvas();
     console.log(`Window resized: ${window.innerWidth} x ${window.innerHeight}`);
