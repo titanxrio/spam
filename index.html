@@ -2,95 +2,85 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>TITAN – The Code Overlord</title>
+  <title>DOMINATION – The Code Overlord</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- AOS für fette Animationen -->
-  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
+  <!-- Link to CSS -->
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <!-- Preloader -->
+  <div id="preloader">
+    <div class="loader"></div>
+  </div>
+
+  <!-- Navigation -->
   <header>
     <nav>
       <ul>
-         <li><a href="index.html" class="active">Home</a></li>
-         <li><a href="dominance.html">Dominance</a></li>
-         <li><a href="contact.html">Contact</a></li>
+        <li><a href="#home" class="active">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#domination">Domination</a></li>
+        <li><a href="#contact">Contact</a></li>
       </ul>
     </nav>
   </header>
 
-  <main>
-    <!-- Hero Section: Vollbild, Parallax & Blue-Glow -->
-    <section class="hero" data-aos="fade" data-aos-duration="1500">
-      <div class="hero-overlay">
-        <h1>I AM TITAN</h1>
-        <p>The Code Overlord – Dominating the digital realm since day one.</p>
-        <div class="scroll-indicator">
-          <span>&darr;</span>
-        </div>
-      </div>
-    </section>
+  <!-- Home Section -->
+  <section id="home" class="section home-section">
+    <div class="hero">
+      <h1 class="glitch" data-text="DOMINATION">DOMINATION</h1>
+      <p>Experience the overwhelming force of digital power.</p>
+      <button id="enterBtn">Enter the Realm</button>
+    </div>
+  </section>
 
-    <!-- About Titan: Der Mastermind spricht -->
-    <section class="about-me" data-aos="fade-up" data-aos-duration="1500">
-      <div class="content">
-        <h2>About Titan</h2>
-        <p>I love to code in Python (sometimes). My passion, my power – they reshape the digital world. When you see my work, you know: I stand above all.</p>
-      </div>
-    </section>
+  <!-- About Section -->
+  <section id="about" class="section about-section">
+    <div class="content">
+      <h2>About Domination</h2>
+      <p>
+        We aren’t just a website – we are an event.
+        A phenomenon that reshapes digital reality.
+        Feel the power, embrace the terror.
+      </p>
+    </div>
+  </section>
 
-    <!-- My Servers: Titan’s eigene Giganten -->
-    <section class="my-servers" data-aos="fade-up" data-aos-duration="1500">
-      <div class="content">
-        <h2>My Servers</h2>
-        <div class="server-list">
-          <div class="server-card" data-aos="zoom-in" data-aos-duration="1000">
-            <img src="zerobyte.png" alt="Zerobyte Logo">
-            <h3>Zerobyte</h3>
-            <p>Leading in reselling & digital innovation – a true titan among servers.</p>
-          </div>
-          <div class="server-card" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="200">
-            <img src="titan.png" alt="Titan Service Logo">
-            <h3>Titan Service</h3>
-            <p>The legacy server that redefines performance and power.</p>
-          </div>
-        </div>
-      </div>
-    </section>
+  <!-- Domination Section -->
+  <section id="domination" class="section domination-section">
+    <div class="content">
+      <h2>The Dominance</h2>
+      <p>
+        Every pixel, every line of code is engineered to strike fear.
+        When you witness our work, you know true power is taken,
+        never given.
+      </p>
+    </div>
+  </section>
 
-    <!-- Other Dominant Servers: Auch wenn sie nicht mir gehören, müssen sie anerkennen, wer dominiert -->
-    <section class="other-servers" data-aos="fade-up" data-aos-duration="1500">
-      <div class="content">
-        <h2>Other Dominant Servers</h2>
-        <div class="server-list vertical">
-          <div class="server-card" data-aos="flip-up" data-aos-duration="1000">
-            <img src="server1.png" alt="Server Alpha">
-            <h3>Server Alpha</h3>
-            <p>Epic performance meets unrivaled style.</p>
-          </div>
-          <div class="server-card" data-aos="flip-up" data-aos-duration="1000" data-aos-delay="150">
-            <img src="server2.png" alt="Server Beta">
-            <h3>Server Beta</h3>
-            <p>Innovation that leaves competitors in the dust.</p>
-          </div>
-          <div class="server-card" data-aos="flip-up" data-aos-duration="1000" data-aos-delay="300">
-            <img src="server3.png" alt="Server Gamma">
-            <h3>Server Gamma</h3>
-            <p>The next level of digital supremacy.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-  </main>
+  <!-- Contact Section -->
+  <section id="contact" class="section contact-section">
+    <div class="content">
+      <h2>Contact the Overlord</h2>
+      <p>
+        Dare to reach out and join the revolution.
+        Leave your mark – if you have the courage.
+      </p>
+      <form id="contactForm">
+        <input type="text" placeholder="Name" required>
+        <input type="email" placeholder="Email" required>
+        <textarea placeholder="Message" required></textarea>
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+  </section>
 
+  <!-- Footer -->
   <footer>
-    <p>&copy; 2025 TITAN. All Rights Reserved.</p>
+    <p>&copy; 2025 DOMINATION. All Rights Reserved.</p>
   </footer>
 
-  <!-- AOS Script -->
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-  <script>
-    AOS.init();
-  </script>
+  <!-- Link to JavaScript -->
+  <script src="script.js"></script>
 </body>
 </html>
