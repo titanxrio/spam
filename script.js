@@ -1,25 +1,24 @@
 // =========================================================================
 // TITAN – 100% DOMINATION JavaScript
 // =========================================================================
-// Dieser Code steuert Preloader, Smooth Scrolling, Partikel-, Glitch- und
-// Overlay-Effekte sowie interaktive Hover-Animationen. Jeder Pixel lebt,
-// pulsiert und zeigt Dominanz!
+// Dieser Code steuert Preloader, Smooth Scrolling, Canvas-Partikel, Glitch-,
+// Overlay-Effekte und interaktive Hover-Animationen – alles, um jeden Pixel
+// zum Leben zu erwecken.
 // =========================================================================
 
 document.addEventListener("DOMContentLoaded", function() {
-  // Preloader-Funktion
+  // Preloader ausblenden
   const preloader = document.getElementById('preloader');
   setTimeout(() => {
     preloader.style.opacity = '0';
     setTimeout(() => { preloader.style.display = 'none'; }, 500);
   }, 2000);
 
-  // Smooth Scrolling für Navigation & "Enter My Domain"-Button
+  // Smooth Scrolling
   function smoothScroll(targetID) {
     const target = document.getElementById(targetID);
     target.scrollIntoView({ behavior: 'smooth' });
   }
-  
   const navLinks = document.querySelectorAll('nav ul li a');
   navLinks.forEach(link => {
     link.addEventListener('click', function(e) {
@@ -30,41 +29,59 @@ document.addEventListener("DOMContentLoaded", function() {
       this.classList.add('active');
     });
   });
-  
   const enterBtn = document.getElementById('enterBtn');
   if (enterBtn) {
     enterBtn.addEventListener('click', function() {
       smoothScroll('about');
     });
   }
-  
-  // Partikel-Effekt: Erzeuge 200 Partikel, die dynamisch animieren
-  const particlesContainer = document.querySelector('.particles');
+
+  // Canvas-Partikel-Hintergrund: Jeder Pixel animiert sich
+  const canvas = document.getElementById('bgCanvas');
+  const ctx = canvas.getContext('2d');
   let particles = [];
-  const particleCount = 200;
-  function initParticles() {
-    for (let i = 0; i < particleCount; i++) {
-      const particle = document.createElement('div');
-      particle.classList.add('particle');
-      particle.style.left = Math.random() * 100 + '%';
-      particle.style.top = Math.random() * 100 + '%';
-      particle.style.width = particle.style.height = Math.random() * 4 + 1 + 'px';
-      particle.style.opacity = Math.random();
-      particlesContainer.appendChild(particle);
-      particles.push(particle);
+  const particleCount = 500;
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+  
+  class Particle {
+    constructor() {
+      this.x = Math.random() * canvas.width;
+      this.y = Math.random() * canvas.height;
+      this.size = Math.random() * 2 + 1;
+      this.speedX = Math.random() * 0.5 - 0.25;
+      this.speedY = Math.random() * 0.5 - 0.25;
+      this.color = "#1e90ff";
+    }
+    update() {
+      this.x += this.speedX;
+      this.y += this.speedY;
+      if (this.x < 0 || this.x > canvas.width) this.speedX *= -1;
+      if (this.y < 0 || this.y > canvas.height) this.speedY *= -1;
+    }
+    draw() {
+      ctx.fillStyle = this.color;
+      ctx.fillRect(this.x, this.y, this.size, this.size);
     }
   }
-  function animateParticles() {
-    particles.forEach(p => {
-      let speed = 0.5 + Math.random();
-      let posY = parseFloat(p.style.top);
-      posY += speed * 0.1;
-      if (posY > 100) posY = 0;
-      p.style.top = posY + '%';
-    });
-    requestAnimationFrame(animateParticles);
+  
+  function initParticles() {
+    for (let i = 0; i < particleCount; i++) {
+      particles.push(new Particle());
+    }
   }
-  if (particlesContainer) { initParticles(); animateParticles(); }
+  
+  function animateCanvas() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    particles.forEach(p => {
+      p.update();
+      p.draw();
+    });
+    requestAnimationFrame(animateCanvas);
+  }
+  
+  initParticles();
+  animateCanvas();
   
   // Glitch-Effekt Randomizer
   function randomGlitch() {
@@ -77,7 +94,7 @@ document.addEventListener("DOMContentLoaded", function() {
   }
   setInterval(randomGlitch, 2500);
   
-  // Overlay-Scroll-Effekt: Passe Overlay-Animation an den Scroll-Wert an
+  // Overlay-Scroll-Effekt
   const animOverlay = document.querySelector('.anim-overlay');
   window.addEventListener('scroll', function() {
     let scrollPos = window.pageYOffset;
@@ -97,9 +114,9 @@ document.addEventListener("DOMContentLoaded", function() {
     });
   }
   
-  // Interaktive Hover-Animationen für DOM-Boxen, ZEROBYTE-Boxen und andere Elemente
-  const hoverElems = document.querySelectorAll('.dom-box, .zb-box, .particle');
-  hoverElems.forEach(el => {
+  // Interaktive Hover-Animationen für dynamische Elemente
+  const interactiveElems = document.querySelectorAll('.dom-shape, .zb-box, .particle');
+  interactiveElems.forEach(el => {
     el.addEventListener('mouseover', function() {
       this.style.transform = 'scale(1.25)';
       this.style.transition = 'transform 0.3s ease';
@@ -109,23 +126,25 @@ document.addEventListener("DOMContentLoaded", function() {
     });
   });
   
-  // Zusätzliche zufällige Animationen für kleine Elemente (jeder Pixel zählt!)
+  // Zufällige Pixel-Animationen: Jeder DOM-Knoten bekommt gelegentlich einen Twist
   function randomPixelAnimation() {
     const allElems = document.querySelectorAll('body *');
     allElems.forEach(el => {
-      if (Math.random() < 0.05) {
+      if (Math.random() < 0.03) {
         el.style.transition = 'transform 0.3s ease';
-        el.style.transform = `rotate(${Math.random()*10 - 5}deg)`;
+        el.style.transform = `rotate(${Math.random() * 10 - 5}deg)`;
         setTimeout(() => { el.style.transform = 'rotate(0deg)'; }, 300);
       }
     });
   }
   setInterval(randomPixelAnimation, 5000);
   
-  // Responsive Anpassung bei Fenstergrößenänderung (Debugging & Anpassungen)
+  // Responsive Anpassung bei Fenstergrößenänderung
   window.addEventListener('resize', function() {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
     console.log(`Window resized: ${window.innerWidth} x ${window.innerHeight}`);
   });
   
-  console.log("TITAN – Domination script loaded. Prepare to be overwhelmed.");
+  console.log("TITAN – Domination script loaded. Every pixel is in motion.");
 });
