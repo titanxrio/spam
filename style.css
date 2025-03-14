@@ -172,17 +172,17 @@ nav ul li a.active {
   font-size: 1.2rem;
 }
 
-/* Products Section */
-.products {
+/* Services Section */
+.services {
   padding: 120px 20px;
   background-color: #111;
   text-align: center;
 }
-.products .content {
+.services .content {
   max-width: 1200px;
   margin: 0 auto;
 }
-.products h1 {
+.services h1 {
   font-size: 4rem;
   color: #1e90ff;
   text-shadow: 0 0 20px #1e90ff;
@@ -340,6 +340,16 @@ nav ul li a.active {
 .contact-info ul li {
   font-size: 1.2rem;
   margin-bottom: 10px;
+}
+.contact-info ul li a {
+  color: #1e90ff;
+  transition: color 0.3s;
+}
+.contact-info ul li a:hover {
+  color: #63b3ed;
+}
+.contact-info ul li a i {
+  margin-right: 10px;
 }
 
 /* Footer */
