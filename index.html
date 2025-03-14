@@ -6,10 +6,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <!-- Externe CSS & Fonts -->
   <link rel="stylesheet" href="style.css">
+  <!-- Font Awesome für ikonische Social-Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
-  <!-- Ultra Epic Preloader -->
+  <!-- Ultra-Epic Preloader -->
   <div id="preloader">
     <div class="loader">
       <div class="loader-inner"></div>
@@ -18,6 +19,9 @@
       <div class="loader-inner"></div>
     </div>
   </div>
+
+  <!-- Fullscreen Canvas für animierten Pixelhintergrund -->
+  <canvas id="bgCanvas"></canvas>
 
   <!-- Navigation mit Parallax-Scroll -->
   <header>
@@ -38,12 +42,11 @@
       <div class="glitch-container">
         <h1 class="glitch" data-text="I AM TITAN">I AM TITAN</h1>
       </div>
-      <p class="tagline">100% DOMINATION – Every pixel and every code beats with power.</p>
+      <p class="tagline">100% DOMINATION – Every pixel is alive, every code pulses with power.</p>
       <button id="enterBtn">Enter My Domain</button>
       <div class="scroll-indicator"><span class="arrow">&#8595;</span></div>
     </div>
-    <!-- Extra Animationseffekte: Partikel & Overlay -->
-    <div class="particles"></div>
+    <!-- Zusätzliche Animationselemente -->
     <div class="anim-overlay"></div>
   </section>
 
@@ -52,9 +55,9 @@
     <div class="content">
       <h2>About Me</h2>
       <p>
-        I code in Python (sometimes) – every keystroke shakes the digital universe.
-        My creations are a revolution; my style is pure domination.
-        When you see my work, you know: TITAN reigns supreme.
+        I code in Python (sometimes) and every keystroke ignites a revolution.
+        My work is not just code – it’s a declaration of absolute dominance.
+        When you see my creation, you know: TITAN rules the digital universe.
       </p>
       <div class="animated-lines">
         <span></span><span></span><span></span><span></span>
@@ -62,23 +65,16 @@
     </div>
   </section>
 
-  <!-- ZEROBYTE SECTION – Neues Projekt -->
+  <!-- ZEROBYTE SECTION – NEUES PROJEKT -->
   <section id="zerobyte" class="section zerobyte-section">
     <div class="content">
       <h2>ZEROBYTE</h2>
       <p>
-        Introducing ZEROBYTE – my latest project.
-        A new era in digital reselling and innovation.
-        Every pixel here pulsates with groundbreaking energy.
+        Introducing ZEROBYTE – my groundbreaking new project.
+        A revolution in digital reselling and innovation where every pixel pulses with energy.
       </p>
-      <div class="zerobyte-animation">
-        <div class="zb-box"></div>
-        <div class="zb-box"></div>
-        <div class="zb-box"></div>
-        <div class="zb-box"></div>
-        <div class="zb-box"></div>
-        <div class="zb-box"></div>
-      </div>
+      <!-- Statt pulsierender Vierecke: Dynamische, fließende Partikel -->
+      <div class="zerobyte-particles"></div>
     </div>
   </section>
 
@@ -87,15 +83,16 @@
     <div class="content">
       <h2>DOMINATION</h2>
       <p>
-        Every line of code, every animation, every transition is engineered to crush the competition.
-        This is not just a website – it's an uprising of digital supremacy.
+        Every line, every transition, every animation has been forged in the fires of conquest.
+        This is not just a website – it’s the very heartbeat of digital supremacy.
       </p>
       <div class="dom-animation">
-        <div class="dom-box"></div>
-        <div class="dom-box"></div>
-        <div class="dom-box"></div>
-        <div class="dom-box"></div>
-        <div class="dom-box"></div>
+        <!-- Statt simpler Vierecke: Komplexe animierte Formen -->
+        <div class="dom-shape"></div>
+        <div class="dom-shape"></div>
+        <div class="dom-shape"></div>
+        <div class="dom-shape"></div>
+        <div class="dom-shape"></div>
       </div>
     </div>
   </section>
@@ -105,8 +102,8 @@
     <div class="content">
       <h2>Contact the Overlord</h2>
       <p>
-        Dare to reach out if you believe you can harness this power.
-        Send your message, and join the revolution of TITAN.
+        Dare to reach out if you can handle the power.
+        Send your message and join the revolution – if you have the courage.
       </p>
       <form id="contactForm">
         <input type="text" placeholder="Your Name" required>
