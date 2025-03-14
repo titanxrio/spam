@@ -2,8 +2,8 @@
 // TITAN – 100% DOMINATION JavaScript
 // =========================================================================
 // Dieser Code steuert den Preloader, Smooth Scrolling, den Canvas-Partikel-
-// Hintergrund, zufällige Glitch-Effekte, Overlay-Animationen, interaktive
-// Hover-Effekte und zusätzliche Pixelanimationen – jeder Pixel ist in Bewegung.
+// Hintergrund, zufällige Glitch-Effekte, Overlay-Animationen, den Audio-
+// Visualizer und alle interaktiven Hover-Effekte – hier reagiert jeder Pixel!
 // =========================================================================
 
 document.addEventListener("DOMContentLoaded", function() {
@@ -36,7 +36,7 @@ document.addEventListener("DOMContentLoaded", function() {
     });
   }
 
-  // Canvas-Partikel-Hintergrund (100% animierte Pixel)
+  // Canvas-Partikel-Hintergrund
   const canvas = document.getElementById('bgCanvas');
   const ctx = canvas.getContext('2d');
   let particles = [];
@@ -104,6 +104,46 @@ document.addEventListener("DOMContentLoaded", function() {
     }
   });
 
+  // Audio Player & Visualizer
+  const audioFileInput = document.getElementById('audioFile');
+  const audioPlayer = document.getElementById('audioPlayer');
+  const audioCanvas = document.getElementById('audioCanvas');
+  const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+  const analyser = audioCtx.createAnalyser();
+  const audioSrc = audioCtx.createMediaElementSource(audioPlayer);
+  audioSrc.connect(analyser);
+  analyser.connect(audioCtx.destination);
+  analyser.fftSize = 256;
+  const bufferLength = analyser.frequencyBinCount;
+  const dataArray = new Uint8Array(bufferLength);
+  const canvasCtx = audioCanvas.getContext('2d');
+
+  function drawAudioVisualizer() {
+    requestAnimationFrame(drawAudioVisualizer);
+    analyser.getByteFrequencyData(dataArray);
+    canvasCtx.fillStyle = '#000';
+    canvasCtx.fillRect(0, 0, audioCanvas.width, audioCanvas.height);
+    let barWidth = (audioCanvas.width / bufferLength) * 2.5;
+    let barHeight;
+    let x = 0;
+    for (let i = 0; i < bufferLength; i++) {
+      barHeight = dataArray[i];
+      canvasCtx.fillStyle = `rgb(${barHeight+100},50,150)`;
+      canvasCtx.fillRect(x, audioCanvas.height - barHeight / 2, barWidth, barHeight / 2);
+      x += barWidth + 1;
+    }
+  }
+  drawAudioVisualizer();
+  audioFileInput.addEventListener('change', function() {
+    const files = this.files;
+    if (files.length > 0) {
+      const fileURL = URL.createObjectURL(files[0]);
+      audioPlayer.src = fileURL;
+      audioPlayer.play();
+      audioCtx.resume();
+    }
+  });
+
   // Kontaktformular: Dummy-Submission
   const contactForm = document.getElementById('contactForm');
   if (contactForm) {
@@ -114,7 +154,7 @@ document.addEventListener("DOMContentLoaded", function() {
     });
   }
 
-  // Interaktive Hover-Animationen für dynamische Elemente
+  // Interaktive Hover-Animationen
   const interactiveElems = document.querySelectorAll('.dom-shape, .shape, .project-card, .particle');
   interactiveElems.forEach(el => {
     el.addEventListener('mouseover', function() {
@@ -126,7 +166,7 @@ document.addEventListener("DOMContentLoaded", function() {
     });
   });
 
-  // Zufällige Pixel-Animationen: Jeder DOM-Knoten bekommt gelegentlich einen Twist
+  // Zufällige Pixel-Animationen
   function randomPixelAnimation() {
     const allElems = document.querySelectorAll('body *');
     allElems.forEach(el => {
@@ -141,6 +181,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
   // Responsive Anpassung bei Fenstergrößenänderung
   window.addEventListener('resize', function() {
+    resizeCanvas();
     console.log(`Window resized: ${window.innerWidth} x ${window.innerHeight}`);
   });
 
