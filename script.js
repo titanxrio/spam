@@ -1,4 +1,4 @@
-// Öffnet das Modal und zeigt das angeklickte Service-/Produktbild im Overlay an
+// Öffnet das Modal und zeigt das angeklickte Bild im Overlay an
 function openModal(element) {
   const modal = document.getElementById('modal');
   const modalImg = document.getElementById('modal-img');
