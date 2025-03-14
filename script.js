@@ -1,29 +1,53 @@
 document.addEventListener('DOMContentLoaded', function() {
-  // Loader and main content control
+  // Remove loader and reveal main content after cinematic delay
   setTimeout(function() {
     document.getElementById('loader').style.display = 'none';
     document.getElementById('main').style.display = 'block';
-  }, 4000); // 4-second loader for maximum impact
+  }, 4000);
 
-  // IntersectionObserver for cinematic section animations
+  // IntersectionObserver for section animations
   const sections = document.querySelectorAll('.section');
-  const observerOptions = { threshold: 0.3 };
-  const observer = new IntersectionObserver((entries, obs) => {
+  const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
-      if (entry.isIntersecting) {
+      if(entry.isIntersecting) {
         entry.target.classList.add('visible');
-        obs.unobserve(entry.target);
+        observer.unobserve(entry.target);
       }
     });
-  }, observerOptions);
+  }, { threshold: 0.3 });
   sections.forEach(section => observer.observe(section));
 
-  // Smooth scroll on navigation click
+  // Smooth scroll for navigation links
   window.scrollToSection = function(id) {
     document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
   };
 
-  // Passcode validation for secure access
+  // Mouse-based background movement (subtle parallax effect)
+  document.addEventListener('mousemove', function(e) {
+    const x = (e.clientX / window.innerWidth) * 10;
+    const y = (e.clientY / window.innerHeight) * 10;
+    document.body.style.setProperty('--bg-move-x', `${x}px`);
+    document.body.style.setProperty('--bg-move-y', `${y}px`);
+    document.querySelector('body::before'); // For triggering CSS variable update
+  });
+
+  // Dynamic Music Visualizer – Generate neon bars
+  const visualizer = document.getElementById('music-visualizer');
+  for(let i = 0; i < 70; i++) {
+    const bar = document.createElement('div');
+    bar.classList.add('bar');
+    bar.style.left = (i * 1.5) + '%';
+    bar.style.animationDelay = (i * 0.04) + 's';
+    visualizer.appendChild(bar);
+  }
+
+  // Decrypt Contact Section: Reveal form after "decryption"
+  window.decryptContact = function() {
+    document.getElementById('contact-lockdown').style.display = 'none';
+    document.getElementById('contact-form').style.display = 'flex';
+  };
+
+  // Passcode validation for secure network access
   window.validatePasscode = function(e) {
     e.preventDefault();
     const passcode = document.getElementById('passcode').value;
@@ -34,13 +58,15 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   };
 
-  // Dynamic Music Visualizer: Create neon bars pulsing with raw energy
-  const visualizer = document.getElementById('music-visualizer');
-  for (let i = 0; i < 70; i++) {
-    const bar = document.createElement('div');
-    bar.classList.add('bar');
-    bar.style.left = (i * 1.5) + '%';
-    bar.style.animationDelay = (i * 0.04) + 's';
-    visualizer.appendChild(bar);
-  }
+  // Optional: Additional hover glitch for grid items
+  const gridItems = document.querySelectorAll('.grid-item');
+  gridItems.forEach(item => {
+    item.addEventListener('mouseenter', () => {
+      const originalText = item.innerHTML;
+      item.innerHTML = `<span class="glitch-hover">${item.getAttribute('data-decrypt') || item.getAttribute('data-glitch')}</span>`;
+      setTimeout(() => {
+        item.innerHTML = originalText;
+      }, 800);
+    });
+  });
 });
