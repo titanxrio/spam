@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html lang="de">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>TS - Next Level Digital Experience</title>
+  <title>TS - Digital Dominance</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <!-- AOS Animation Library -->
   <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
@@ -12,31 +12,46 @@
   <header>
     <nav>
       <ul>
-         <li><a href="index.html" class="active">Home</a></li>
-         <li><a href="product.html">Products</a></li>
-         <li><a href="contact.html">Contact</a></li>
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="product.html">Products</a></li>
+        <li><a href="contact.html">Contact</a></li>
       </ul>
     </nav>
   </header>
   
   <main>
-    <!-- Hero Section mit krassem Blue-Glow -->
-    <section class="hero" data-aos="fade-up" data-aos-duration="1500">
+    <!-- Hero Section -->
+    <section class="hero" data-aos="fade-in" data-aos-duration="1500">
       <div class="hero-content">
-         <h1>Welcome to TS</h1>
-         <p>That's why I love reselling – I'm the owner of <strong>Zerobyte</strong> and <strong>Titan Service</strong>. Experience professional digital dominance.</p>
-         <div class="hero-images">
-           <!-- Bilder: Zerobyte und Titan Service (png oder gif) -->
-           <img src="zerobyte.png" alt="Zerobyte Logo" data-aos="zoom-in" data-aos-duration="1000">
-           <img src="titan.png" alt="Titan Service Logo" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="200">
-         </div>
+        <h1>Welcome to TS</h1>
+        <p>Your gateway to digital excellence</p>
+      </div>
+      <div class="scroll-indicator">
+         <span>&darr;</span>
       </div>
     </section>
     
-    <!-- Extended Info Section -->
-    <section class="info" data-aos="fade-up" data-aos-duration="1500">
-       <h2>Unparalleled Innovation</h2>
-       <p>Unsere digitalen Lösungen verbinden cutting-edge Technologie mit purem Style. Wir setzen neue Maßstäbe – elegant, effizient und zukunftsweisend.</p>
+    <!-- About Me Section -->
+    <section class="about-me" data-aos="fade-up" data-aos-duration="1500">
+      <h2>About Me</h2>
+      <p>I love to code in Python (sometimes)</p>
+    </section>
+    
+    <!-- Servers Section – erscheint erst beim Runterscrollen -->
+    <section class="servers" data-aos="fade-up" data-aos-duration="1500">
+      <h2>Our Servers</h2>
+      <div class="server-cards">
+         <div class="server-card" data-aos="zoom-in" data-aos-duration="1000">
+            <img src="zerobyte.png" alt="Zerobyte">
+            <h3>Zerobyte</h3>
+            <p>Leading in reselling and digital innovation.</p>
+         </div>
+         <div class="server-card" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="200">
+            <img src="titan.png" alt="Titan Service">
+            <h3>Titan Service</h3>
+            <p>The legacy server delivering unmatched performance.</p>
+         </div>
+      </div>
     </section>
   </main>
   
@@ -44,7 +59,7 @@
     <p>&copy; 2025 TS. All Rights Reserved.</p>
   </footer>
   
-  <!-- AOS Scripts -->
+  <!-- AOS Script -->
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>
     AOS.init();
