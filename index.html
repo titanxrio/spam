@@ -3,110 +3,63 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>TITAN SERVICE | DIGITAL DOMINANCE</title>
-  <!-- Premium Futuristic Typeface -->
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+  <title>TITAN SERVICE - Digital Dominance</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <!-- Loader: The Initiation Sequence -->
-  <div id="loader">
-    <div class="loader-content">
-      <h1 class="glitch" data-text="Accessing… TITAN NETWORK">Accessing… TITAN NETWORK</h1>
-      <div class="loader-glitch"></div>
-    </div>
-  </div>
-
-  <!-- Navigation: The Command Center -->
-  <nav id="nav">
+  <!-- Navigation Bar -->
+  <nav class="navbar">
     <ul>
-      <li onclick="scrollToSection('intro')">HOME</li>
-      <li onclick="scrollToSection('story')">MY STORY</li>
-      <li onclick="scrollToSection('projects')">PROJECTS</li>
-      <li onclick="scrollToSection('music')">MUSIC</li>
-      <li onclick="scrollToSection('gaming')">GAMING</li>
-      <li onclick="scrollToSection('contact')">CONTACT</li>
+      <li><a href="#intro">Home</a></li>
+      <li><a href="#portfolio">Portfolio</a></li>
+      <li><a href="#music">Music</a></li>
+      <li><a href="#gaming">Gaming</a></li>
+      <li><a href="#tech">Tech</a></li>
+      <li><a href="#contact">Contact</a></li>
     </ul>
   </nav>
 
-  <!-- Main Content: The Digital Kingdom -->
-  <div id="main">
-    <!-- Intro: Forbidden Entrance -->
-    <section id="intro" class="section">
-      <div class="content">
-        <h2 class="section-title glitch-text">PAUL – THE CYBER TITAN</h2>
-        <p class="intro-text">HACKING. DEVELOPMENT. CYBERSECURITY. DOMINANCE.</p>
-      </div>
-    </section>
+  <!-- Intro Section: Cinematic, Glitching Entrance -->
+  <section id="intro" class="section intro">
+    <div class="intro-content">
+      <h1 class="glitch" data-text="Accessing... TITAN NETWORK">
+        Accessing... TITAN NETWORK
+      </h1>
+      <h2 class="reveal" data-text="PAUL – THE CYBER TITAN. HACKING. DEVELOPMENT. CYBERSECURITY. DOMINANCE.">
+        PAUL – THE CYBER TITAN. HACKING. DEVELOPMENT. CYBERSECURITY. DOMINANCE.
+      </h2>
+    </div>
+  </section>
 
-    <!-- My Story: Manifesto of Power -->
-    <section id="story" class="section">
-      <div class="content">
-        <h2 class="section-title">MY STORY</h2>
-        <p class="story-line" data-text="I build what others fear.">I build what others fear.</p>
-        <p class="story-line" data-text="I see what others miss.">I see what others miss.</p>
-        <p class="story-line" data-text="I master the systems that run this world.">I master the systems that run this world.</p>
-        <p class="story-line" data-text="I code, I hack, I game, I create.">I code, I hack, I game, I create.</p>
-      </div>
-    </section>
+  <!-- Portfolio Section -->
+  <section id="portfolio" class="section">
+    <h2>Portfolio</h2>
+    <p>Showcasing elite digital craftsmanship that redefines boundaries.</p>
+  </section>
 
-    <!-- Projects: Animated Portfolio -->
-    <section id="projects" class="section">
-      <div class="content">
-        <h2 class="section-title">PROJECTS & LEGACY</h2>
-        <div class="grid">
-          <div class="grid-item" data-decrypt="PROJECT 1">PROJECT 1<br><small>Decrypting data...</small></div>
-          <div class="grid-item" data-decrypt="PROJECT 2">PROJECT 2<br><small>Decrypting data...</small></div>
-          <div class="grid-item" data-decrypt="PROJECT 3">PROJECT 3<br><small>Decrypting data...</small></div>
-          <div class="grid-item" data-decrypt="PROJECT 4">PROJECT 4<br><small>Decrypting data...</small></div>
-        </div>
-      </div>
-    </section>
+  <!-- Music Section -->
+  <section id="music" class="section">
+    <h2>Music</h2>
+    <p>Unleashing sonic waves of digital mastery and innovation.</p>
+  </section>
 
-    <!-- Music: The Sound of the System -->
-    <section id="music" class="section">
-      <div class="content">
-        <h2 class="section-title">MUSIC & ENERGY</h2>
-        <div id="music-visualizer"></div>
-        <p class="music-text">RAP | HARDSTYLE | TECHNO | SYNTHWAVE</p>
-      </div>
-    </section>
+  <!-- Gaming Section -->
+  <section id="gaming" class="section">
+    <h2>Gaming</h2>
+    <p>Experience interactive realms where power and play converge.</p>
+  </section>
 
-    <!-- Gaming: The Digital Battlefield -->
-    <section id="gaming" class="section">
-      <div class="content">
-        <h2 class="section-title">GAMING & TECH</h2>
-        <div class="grid">
-          <div class="grid-item" data-glitch="GAME 1">GAME 1<br><small>Loading gameplay...</small></div>
-          <div class="grid-item" data-glitch="GAME 2">GAME 2<br><small>Loading gameplay...</small></div>
-          <div class="grid-item" data-glitch="GAME 3">GAME 3<br><small>Loading gameplay...</small></div>
-          <div class="grid-item" data-glitch="GAME 4">GAME 4<br><small>Loading gameplay...</small></div>
-        </div>
-      </div>
-    </section>
+  <!-- Tech Section -->
+  <section id="tech" class="section">
+    <h2>Tech</h2>
+    <p>Engineering the future with cutting-edge technology and unyielding precision.</p>
+  </section>
 
-    <!-- Contact: Elite Access Only -->
-    <section id="contact" class="section">
-      <div class="content">
-        <h2 class="section-title">CONTACT & NETWORK</h2>
-        <div id="contact-lockdown">
-          <p>SECURITY LOCKDOWN ENGAGED</p>
-          <button id="decrypt-btn" onclick="decryptContact()">Decrypt Access</button>
-        </div>
-        <form id="contact-form" onsubmit="return validatePasscode(event)">
-          <input type="password" id="passcode" placeholder="ENTER PASSCODE" required>
-          <button type="submit">ACCESS NETWORK</button>
-        </form>
-      </div>
-    </section>
-
-    <!-- Footer: Final Declaration -->
-    <footer>
-      <div class="content">
-        <p>This is not a website—it’s a digital manifesto of supremacy. Welcome to TITAN.</p>
-      </div>
-    </footer>
-  </div>
+  <!-- Contact Section -->
+  <section id="contact" class="section">
+    <h2>Contact</h2>
+    <p>Reach out via Discord: <strong>TITANSERVICE#0001</strong></p>
+  </section>
 
   <script src="script.js"></script>
 </body>
