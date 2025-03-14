@@ -11,68 +11,89 @@
 <body>
   <!-- Loader: The Initiation Sequence -->
   <div id="loader">
-    <div class="loader-inner">
-      <h1 class="glitch" data-text="TITAN NETWORK">TITAN NETWORK</h1>
-      <p>Initializing system...<br>Dominance sequence engaged.</p>
+    <div class="loader-content">
+      <h1 class="glitch" data-text="Accessing… TITAN NETWORK">Accessing… TITAN NETWORK</h1>
+      <div class="loader-glitch"></div>
     </div>
   </div>
 
   <!-- Navigation: The Command Center -->
   <nav id="nav">
     <ul>
-      <li onclick="scrollToSection('section-who')">WHO I AM</li>
-      <li onclick="scrollToSection('section-projects')">PROJECTS</li>
-      <li onclick="scrollToSection('section-music')">MUSIC</li>
-      <li onclick="scrollToSection('section-gaming')">GAMING</li>
-      <li onclick="scrollToSection('section-contact')">CONTACT</li>
+      <li onclick="scrollToSection('intro')">HOME</li>
+      <li onclick="scrollToSection('story')">MY STORY</li>
+      <li onclick="scrollToSection('projects')">PROJECTS</li>
+      <li onclick="scrollToSection('music')">MUSIC</li>
+      <li onclick="scrollToSection('gaming')">GAMING</li>
+      <li onclick="scrollToSection('contact')">CONTACT</li>
     </ul>
   </nav>
 
   <!-- Main Content: The Digital Kingdom -->
   <div id="main">
-    <section id="section-who" class="section">
+    <!-- Intro: The Forbidden Entrance -->
+    <section id="intro" class="section">
       <div class="content">
-        <h2 class="section-title">WHO I AM – THE DIGITAL OVERLORD</h2>
-        <p>I am the architect of code, the master of cyber dominion. My work shatters boundaries and redefines the impossible.</p>
+        <h2 class="section-title glitch-text">PAUL – THE CYBER TITAN</h2>
+        <p class="intro-text">HACKING. DEVELOPMENT. CYBERSECURITY. DOMINANCE.</p>
       </div>
     </section>
 
-    <section id="section-projects" class="section">
+    <!-- My Story: A Manifesto of Power -->
+    <section id="story" class="section">
       <div class="content">
-        <h2 class="section-title">PROJECTS & LEGACY – THE ARCHITECT OF POWER</h2>
+        <h2 class="section-title">MY STORY</h2>
+        <p class="story-line" data-text="I build what others fear.">I build what others fear.</p>
+        <p class="story-line" data-text="I see what others miss.">I see what others miss.</p>
+        <p class="story-line" data-text="I master the systems that run this world.">I master the systems that run this world.</p>
+        <p class="story-line" data-text="I code, I hack, I game, I create.">I code, I hack, I game, I create.</p>
+      </div>
+    </section>
+
+    <!-- Projects: Animated Portfolio of Destruction -->
+    <section id="projects" class="section">
+      <div class="content">
+        <h2 class="section-title">PROJECTS & LEGACY</h2>
         <div class="grid">
-          <div class="grid-item">PROJECT 1<br><small>Forged in digital fire</small></div>
-          <div class="grid-item">PROJECT 2<br><small>Reshaping the matrix</small></div>
-          <div class="grid-item">PROJECT 3<br><small>Unleashing chaos</small></div>
-          <div class="grid-item">PROJECT 4<br><small>Dominance in code</small></div>
+          <div class="grid-item" data-decrypt="PROJECT 1">PROJECT 1<br><small>Decrypting data...</small></div>
+          <div class="grid-item" data-decrypt="PROJECT 2">PROJECT 2<br><small>Decrypting data...</small></div>
+          <div class="grid-item" data-decrypt="PROJECT 3">PROJECT 3<br><small>Decrypting data...</small></div>
+          <div class="grid-item" data-decrypt="PROJECT 4">PROJECT 4<br><small>Decrypting data...</small></div>
         </div>
       </div>
     </section>
 
-    <section id="section-music" class="section">
+    <!-- Music: The Sound of the System -->
+    <section id="music" class="section">
       <div class="content">
-        <h2 class="section-title">MUSIC & ENERGY – THE SOUND OF THE SYSTEM</h2>
+        <h2 class="section-title">MUSIC & ENERGY</h2>
         <div id="music-visualizer"></div>
-        <p>RAP | HARDSTYLE | TECHNO | SYNTHWAVE</p>
+        <p class="music-text">RAP | HARDSTYLE | TECHNO | SYNTHWAVE</p>
       </div>
     </section>
 
-    <section id="section-gaming" class="section">
+    <!-- Gaming: The Digital Battlefield -->
+    <section id="gaming" class="section">
       <div class="content">
-        <h2 class="section-title">GAMING & TECH – A DIGITAL BATTLEFIELD</h2>
+        <h2 class="section-title">GAMING & TECH</h2>
         <div class="grid">
-          <div class="grid-item">GAME 1<br><small>Epic battles</small></div>
-          <div class="grid-item">GAME 2<br><small>Cyber evolution</small></div>
-          <div class="grid-item">GAME 3<br><small>Legendary moments</small></div>
-          <div class="grid-item">GAME 4<br><small>Stealth ops</small></div>
+          <div class="grid-item" data-glitch="GAME 1">GAME 1<br><small>Loading gameplay...</small></div>
+          <div class="grid-item" data-glitch="GAME 2">GAME 2<br><small>Loading gameplay...</small></div>
+          <div class="grid-item" data-glitch="GAME 3">GAME 3<br><small>Loading gameplay...</small></div>
+          <div class="grid-item" data-glitch="GAME 4">GAME 4<br><small>Loading gameplay...</small></div>
         </div>
       </div>
     </section>
 
-    <section id="section-contact" class="section">
+    <!-- Contact: Elite Access Only -->
+    <section id="contact" class="section">
       <div class="content">
-        <h2 class="section-title">CONTACT & NETWORK – ACCESS RESTRICTED</h2>
-        <form onsubmit="return validatePasscode(event)">
+        <h2 class="section-title">CONTACT & NETWORK</h2>
+        <div id="contact-lockdown">
+          <p>SECURITY LOCKDOWN ENGAGED</p>
+          <button id="decrypt-btn" onclick="decryptContact()">Decrypt Access</button>
+        </div>
+        <form id="contact-form" onsubmit="return validatePasscode(event)">
           <input type="password" id="passcode" placeholder="ENTER PASSCODE" required>
           <button type="submit">ACCESS NETWORK</button>
         </form>
@@ -81,7 +102,7 @@
 
     <footer>
       <div class="content">
-        <p>This is not a website—it’s a digital declaration of supremacy. Welcome to TITAN.</p>
+        <p>This is not a website—it’s a digital manifesto of supremacy. Welcome to TITAN.</p>
       </div>
     </footer>
   </div>
