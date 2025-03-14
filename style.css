@@ -1,8 +1,8 @@
 /* ==========================================================================
    TITAN – 100% DOMINATION Stylesheet
    ==========================================================================
-   Jeder einzelne Pixel wird animiert. Keine Zeile bleibt unbewegt.
-   ========================================================================== */
+   Jeder Pixel lebt, pulsiert und reagiert – hier gibt es keine toten Winkel.
+   ========================================================================= */
 
 /* RESET & BASIS */
 * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -32,7 +32,7 @@ nav ul li a::after { content: ""; position: absolute; width: 0; height: 3px; bac
 nav ul li a:hover::after, nav ul li a.active::after { width: 100%; }
 nav ul li a:hover, nav ul li a.active { color: #fff; }
 
-/* SECTION COMMON */
+/* SECTION COMMON STYLES */
 .section { min-height: 100vh; padding: 140px 30px; display: flex; flex-direction: column; justify-content: center; align-items: center; position: relative; z-index: 1; }
 .section::before { content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.3); z-index: -1; }
 
@@ -56,9 +56,8 @@ nav ul li a:hover, nav ul li a.active { color: #fff; }
 @keyframes glitchTop { 0% { transform: translate(0); } 20% { transform: translate(-4px, -4px); } 40% { transform: translate(-4px, 4px); } 60% { transform: translate(4px, -4px); } 80% { transform: translate(4px, 4px); } 100% { transform: translate(0); } }
 @keyframes glitchBottom { 0% { transform: translate(0); } 20% { transform: translate(4px, 4px); } 40% { transform: translate(4px, -4px); } 60% { transform: translate(-4px, 4px); } 80% { transform: translate(-4px, -4px); } 100% { transform: translate(0); } }
 
-/* CANVAS-PARTIKEL & BACKGROUND */
+/* CANVAS-PARTIKEL-HINTERGRUND */
 #bgCanvas { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -2; }
-.particles { display: none; } /* Wir nutzen jetzt den Canvas */
 
 /* ANIM OVERLAY */
 .anim-overlay { position: absolute; bottom: 0; left: 0; width: 100%; height: 200px; background: linear-gradient(0deg, rgba(0,0,0,1) 0%, transparent 100%); animation: slideUp 3s infinite; }
@@ -79,20 +78,19 @@ nav ul li a:hover, nav ul li a.active { color: #fff; }
 .zerobyte-section { background: #0a0a0a; text-align: center; padding: 140px 30px; }
 .zerobyte-section h2 { font-size: 5rem; margin-bottom: 20px; color: #1e90ff; text-shadow: 0 0 30px #1e90ff; }
 .zerobyte-section p { font-size: 2.2rem; max-width: 900px; margin: 0 auto 50px; line-height: 1.6; }
-/* Statt pulsierender Vierecke: Fließende Partikel, die in Form und Größe variieren */
-.zerobyte-particles {
-  position: relative; width: 100%; height: 300px; overflow: hidden;
+/* Organische, fließende Formen statt Rechtecke */
+.zerobyte-shapes { display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; }
+.shape {
+  width: 150px; height: 150px; background: radial-gradient(circle, #1e90ff, #000);
+  border-radius: 50%;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
-.zerobyte-particles::before {
-  content: "";
-  position: absolute; width: 150%; height: 150%;
-  background: radial-gradient(circle, rgba(30,144,255,0.5), transparent);
-  animation: zbFlow 6s linear infinite;
-}
-@keyframes zbFlow {
-  from { transform: translate(-20%, -20%) scale(1); }
-  to { transform: translate(20%, 20%) scale(1.2); }
-}
+.shape:hover { transform: scale(1.2); box-shadow: 0 0 30px rgba(30,144,255,0.8); }
+/* Zusätzliche Animation für organische Formen */
+@keyframes float { 0% { transform: translateY(0); } 50% { transform: translateY(-20px); } 100% { transform: translateY(0); } }
+.circle { animation: float 4s ease-in-out infinite; }
+.blob { border-radius: 40% 60% 70% 30%; animation: float 5s ease-in-out infinite; }
+.wave { border-radius: 50% 20% 50% 20%; animation: float 3.5s ease-in-out infinite; }
 
 /* DOMINATION SECTION */
 .domination-section { background: #000; text-align: center; padding: 140px 30px; }
@@ -104,6 +102,18 @@ nav ul li a:hover, nav ul li a.active { color: #fff; }
   border-radius: 50%; animation: domPulse 3s infinite;
 }
 @keyframes domPulse { 0% { transform: scale(1); opacity: 0.85; } 50% { transform: scale(1.5); opacity: 1; } 100% { transform: scale(1); opacity: 0.85; } }
+
+/* PROJECTS SECTION */
+.projects-section { background: #111; text-align: center; padding: 140px 30px; }
+.projects-section h2 { font-size: 5rem; margin-bottom: 20px; color: #1e90ff; text-shadow: 0 0 30px #1e90ff; }
+.projects-section p { font-size: 2.2rem; max-width: 900px; margin: 0 auto 50px; line-height: 1.6; }
+.projects-grid { display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; }
+.project-card { background: #222; border-radius: 10px; overflow: hidden; width: 300px; transition: transform 0.3s ease, box-shadow 0.3s ease; }
+.project-card img { width: 100%; transition: transform 0.3s ease; }
+.project-card:hover { transform: scale(1.1); box-shadow: 0 0 40px rgba(30,144,255,0.9); }
+.project-card:hover img { transform: scale(1.05); }
+.project-card h3 { font-size: 2.2rem; margin: 15px 0 10px; color: #1e90ff; text-shadow: 0 0 20px #1e90ff; }
+.project-card p { font-size: 1.6rem; padding: 0 10px 20px; }
 
 /* CONTACT SECTION */
 .contact-section { background: #111; text-align: center; padding: 140px 30px; }
@@ -127,7 +137,7 @@ footer p { font-size: 1.8rem; color: #1e90ff; }
   .hero h1 { font-size: 5rem; }
   .hero p { font-size: 1.6rem; }
   nav ul li a { font-size: 1.4rem; }
-  .about-section h2, .zerobyte-section h2, .domination-section h2, .contact-section h2 { font-size: 4rem; }
-  .about-section p, .zerobyte-section p, .domination-section p, .contact-section p { font-size: 1.8rem; }
+  .about-section h2, .zerobyte-section h2, .domination-section h2, .projects-section h2, .contact-section h2 { font-size: 4rem; }
+  .about-section p, .zerobyte-section p, .domination-section p, .projects-section p, .contact-section p { font-size: 1.8rem; }
   .dom-shape { width: 150px; height: 150px; }
 }
