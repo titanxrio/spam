@@ -2,9 +2,9 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Titan - Premium Services</title>
+  <title>TITAN – Unrivaled Dominance</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- AOS Animation Library -->
+  <!-- AOS für fette Animationen -->
   <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
   <link rel="stylesheet" href="style.css">
 </head>
@@ -13,58 +13,60 @@
     <nav>
       <ul>
          <li><a href="index.html">Home</a></li>
-         <li><a href="services.html" class="active">Services</a></li>
+         <li><a href="dominance.html" class="active">Dominance</a></li>
          <li><a href="contact.html">Contact</a></li>
       </ul>
     </nav>
   </header>
-  
+
   <main>
-    <section class="services" data-aos="fade-up" data-aos-duration="1500">
+    <!-- Dominance Section: Titan’s Masterpieces -->
+    <section class="dominance" data-aos="fade-up" data-aos-duration="1500">
       <div class="content">
-        <h1>My Premium Services</h1>
+        <h1>Unrivaled Dominance</h1>
+        <p>Every line of code, every project – a testament to my supremacy in the digital universe.</p>
         <div class="product-grid">
-          <!-- Die Service-Karten vergrößern sich on hover und öffnen beim Klick ein Overlay -->
+          <!-- Die Dominance-Karten – interaktiv und atemberaubend -->
           <div class="product-card" data-aos="zoom-in" data-aos-duration="1000" onclick="openModal(this)">
-            <img src="service1.png" alt="Service Alpha">
-            <h2>Service Alpha</h2>
-            <p>Exquisite performance with unmatched reliability.</p>
+            <img src="project1.png" alt="Project Alpha">
+            <h2>Project Alpha</h2>
+            <p>The pinnacle of innovation. Unstoppable. Unbreakable.</p>
           </div>
           <div class="product-card" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="100" onclick="openModal(this)">
-            <img src="service2.png" alt="Service Beta">
-            <h2>Service Beta</h2>
-            <p>Innovative design meets robust engineering.</p>
+            <img src="project2.png" alt="Project Beta">
+            <h2>Project Beta</h2>
+            <p>Redefining excellence in every dimension.</p>
           </div>
           <div class="product-card" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="200" onclick="openModal(this)">
-            <img src="service3.png" alt="Service Gamma">
-            <h2>Service Gamma</h2>
-            <p>Next-level integration for the modern era.</p>
+            <img src="project3.png" alt="Project Gamma">
+            <h2>Project Gamma</h2>
+            <p>A legacy of power and perfection.</p>
           </div>
           <div class="product-card" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="300" onclick="openModal(this)">
-            <img src="service4.png" alt="Service Delta">
-            <h2>Service Delta</h2>
-            <p>Engineered to perfection with supreme clarity.</p>
+            <img src="project4.png" alt="Project Delta">
+            <h2>Project Delta</h2>
+            <p>Where vision meets execution – and dominates.</p>
           </div>
         </div>
       </div>
     </section>
   </main>
-  
-  <!-- Modal Overlay für vergrößerte Service-Ansicht -->
+
+  <!-- Modal Overlay für vergrößerte Ansicht -->
   <div id="modal" class="modal" onclick="closeModal(event)">
     <div class="modal-content">
       <span class="close-btn" onclick="closeModal(event)">&times;</span>
       <img id="modal-img" src="" alt="">
       <div id="modal-text">
-         <!-- Optionale Zusatzinfos zum Service -->
+         <!-- Zusätzliche Infos zu deinem Projekt können hier stehen -->
       </div>
     </div>
   </div>
-  
+
   <footer>
-    <p>&copy; 2025 Titan. All Rights Reserved.</p>
+    <p>&copy; 2025 TITAN. All Rights Reserved.</p>
   </footer>
-  
+
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script src="script.js"></script>
   <script>
