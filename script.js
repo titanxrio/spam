@@ -1,4 +1,4 @@
-// DOMContentLoaded – Alles läuft, wenn das Dokument bereit ist.
+// Warte, bis das Dokument geladen ist
 document.addEventListener("DOMContentLoaded", function() {
   // Preloader ausblenden
   const preloader = document.getElementById('preloader');
@@ -7,24 +7,24 @@ document.addEventListener("DOMContentLoaded", function() {
     setTimeout(() => { preloader.style.display = 'none'; }, 500);
   }, 2000);
 
-  // Smooth Scrolling für Navigation
-  const links = document.querySelectorAll('nav ul li a');
-  links.forEach(link => {
-    link.addEventListener('click', function(e) {
-      e.preventDefault();
-      document.querySelector(this.getAttribute('href')).scrollIntoView({
-        behavior: 'smooth'
-      });
-      links.forEach(l => l.classList.remove('active'));
-      this.classList.add('active');
-    });
-  });
-
-  // "Enter the Realm"-Button scrollt zur About-Section
+  // Smooth Scrolling für "Enter the Domain"-Button
   const enterBtn = document.getElementById('enterBtn');
   if (enterBtn) {
     enterBtn.addEventListener('click', function() {
       document.getElementById('about').scrollIntoView({ behavior: 'smooth' });
     });
   }
+
+  // Optional: Navigation Smooth Scrolling
+  const navLinks = document.querySelectorAll('nav ul li a');
+  navLinks.forEach(link => {
+    link.addEventListener('click', function(e) {
+      e.preventDefault();
+      const targetID = this.getAttribute('href').substring(1);
+      const targetSection = document.getElementById(targetID);
+      targetSection.scrollIntoView({ behavior: 'smooth' });
+      navLinks.forEach(link => link.classList.remove('active'));
+      this.classList.add('active');
+    });
+  });
 });
