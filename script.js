@@ -1,9 +1,9 @@
 // =========================================================================
 // TITAN – 100% DOMINATION JavaScript
 // =========================================================================
-// Dieser Code steuert Preloader, Smooth Scrolling, Canvas-Partikel, Glitch-,
-// Overlay-Effekte und interaktive Hover-Animationen – alles, um jeden Pixel
-// zum Leben zu erwecken.
+// Dieser Code steuert den Preloader, Smooth Scrolling, den Canvas-Partikel-
+// Hintergrund, zufällige Glitch-Effekte, Overlay-Animationen, interaktive
+// Hover-Effekte und zusätzliche Pixelanimationen – jeder Pixel ist in Bewegung.
 // =========================================================================
 
 document.addEventListener("DOMContentLoaded", function() {
@@ -36,14 +36,16 @@ document.addEventListener("DOMContentLoaded", function() {
     });
   }
 
-  // Canvas-Partikel-Hintergrund: Jeder Pixel animiert sich
+  // Canvas-Partikel-Hintergrund (100% animierte Pixel)
   const canvas = document.getElementById('bgCanvas');
   const ctx = canvas.getContext('2d');
   let particles = [];
   const particleCount = 500;
-  canvas.width = window.innerWidth;
-  canvas.height = window.innerHeight;
-  
+  function resizeCanvas() {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+  }
+  resizeCanvas();
   class Particle {
     constructor() {
       this.x = Math.random() * canvas.width;
@@ -64,13 +66,11 @@ document.addEventListener("DOMContentLoaded", function() {
       ctx.fillRect(this.x, this.y, this.size, this.size);
     }
   }
-  
   function initParticles() {
     for (let i = 0; i < particleCount; i++) {
       particles.push(new Particle());
     }
   }
-  
   function animateCanvas() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     particles.forEach(p => {
@@ -79,10 +79,10 @@ document.addEventListener("DOMContentLoaded", function() {
     });
     requestAnimationFrame(animateCanvas);
   }
-  
   initParticles();
   animateCanvas();
-  
+  window.addEventListener('resize', resizeCanvas);
+
   // Glitch-Effekt Randomizer
   function randomGlitch() {
     const glitchElems = document.querySelectorAll('.glitch');
@@ -93,7 +93,7 @@ document.addEventListener("DOMContentLoaded", function() {
     });
   }
   setInterval(randomGlitch, 2500);
-  
+
   // Overlay-Scroll-Effekt
   const animOverlay = document.querySelector('.anim-overlay');
   window.addEventListener('scroll', function() {
@@ -103,7 +103,7 @@ document.addEventListener("DOMContentLoaded", function() {
       animOverlay.style.transform = `translateY(${scrollPos / 4}px)`;
     }
   });
-  
+
   // Kontaktformular: Dummy-Submission
   const contactForm = document.getElementById('contactForm');
   if (contactForm) {
@@ -113,9 +113,9 @@ document.addEventListener("DOMContentLoaded", function() {
       contactForm.reset();
     });
   }
-  
+
   // Interaktive Hover-Animationen für dynamische Elemente
-  const interactiveElems = document.querySelectorAll('.dom-shape, .zb-box, .particle');
+  const interactiveElems = document.querySelectorAll('.dom-shape, .shape, .project-card, .particle');
   interactiveElems.forEach(el => {
     el.addEventListener('mouseover', function() {
       this.style.transform = 'scale(1.25)';
@@ -125,7 +125,7 @@ document.addEventListener("DOMContentLoaded", function() {
       this.style.transform = 'scale(1)';
     });
   });
-  
+
   // Zufällige Pixel-Animationen: Jeder DOM-Knoten bekommt gelegentlich einen Twist
   function randomPixelAnimation() {
     const allElems = document.querySelectorAll('body *');
@@ -138,13 +138,11 @@ document.addEventListener("DOMContentLoaded", function() {
     });
   }
   setInterval(randomPixelAnimation, 5000);
-  
+
   // Responsive Anpassung bei Fenstergrößenänderung
   window.addEventListener('resize', function() {
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
     console.log(`Window resized: ${window.innerWidth} x ${window.innerHeight}`);
   });
-  
+
   console.log("TITAN – Domination script loaded. Every pixel is in motion.");
 });
