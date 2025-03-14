@@ -1,9 +1,10 @@
 // =========================================================================
 // TITAN – 100% DOMINATION JavaScript
 // =========================================================================
-// Dieser Code steuert Preloader, Smooth Scrolling, den Canvas-Partikel-
-// Hintergrund, zufällige Glitch-Effekte, Overlay-Animationen, den Audio-
-// Visualizer und interaktive Hover-Effekte – hier reagiert jeder Pixel!
+// Dieser Code steuert den Preloader, Smooth Scrolling, den Canvas-Partikel-
+// Hintergrund, Glitch-Effekte, Overlay-Animationen, den Audio-Visualizer,
+// den benutzerdefinierten Audio-Player mit Playlist und sendet Kontaktmeldungen
+// an einen Discord Webhook – hier reagiert jeder Pixel!
 // =========================================================================
 
 document.addEventListener("DOMContentLoaded", function() {
@@ -105,7 +106,6 @@ document.addEventListener("DOMContentLoaded", function() {
   });
 
   // Audio-Player & Visualizer
-  const playlistItems = document.querySelectorAll('.playlist li');
   const audioPlayer = document.getElementById('audioPlayer');
   const audioCanvas = document.getElementById('audioCanvas');
   const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
@@ -117,7 +117,6 @@ document.addEventListener("DOMContentLoaded", function() {
   const bufferLength = analyser.frequencyBinCount;
   const dataArray = new Uint8Array(bufferLength);
   const canvasCtx = audioCanvas.getContext('2d');
-
   function drawAudioVisualizer() {
     requestAnimationFrame(drawAudioVisualizer);
     analyser.getByteFrequencyData(dataArray);
@@ -135,36 +134,51 @@ document.addEventListener("DOMContentLoaded", function() {
   }
   drawAudioVisualizer();
 
-  // Vordefinierte Playlist
+  // Vordefinierte Playlist (ohne "Track One" – einfach Liste)
+  const playlistItems = document.querySelectorAll('.playlist li');
   const playlist = [
-    { title: "Track One", src: "track1.mp3" },
-    { title: "Track Two", src: "track2.mp3" },
-    { title: "Track Three", src: "track3.mp3" }
+    { title: "Song A", src: "track1.mp3" },
+    { title: "Song B", src: "track2.mp3" },
+    { title: "Song C", src: "track3.mp3" }
   ];
-  // Playlist Klick-Event
   playlistItems.forEach(item => {
     item.addEventListener('click', function() {
       const src = this.getAttribute('data-src');
       audioPlayer.src = src;
       audioPlayer.play();
       audioCtx.resume();
-      // Markiere aktiven Track
       playlistItems.forEach(i => i.classList.remove('active'));
       this.classList.add('active');
     });
   });
-  // Automatischer Start mit erstem Track
   if (playlist.length > 0) {
     audioPlayer.src = playlist[0].src;
   }
 
-  // Kontaktformular: Dummy-Submission
+  // Kontaktformular: Sende Daten an Discord Webhook
   const contactForm = document.getElementById('contactForm');
   if (contactForm) {
     contactForm.addEventListener('submit', function(e) {
       e.preventDefault();
-      alert("Your tribute has been sent to TITAN. Prepare for the reckoning.");
-      contactForm.reset();
+      const name = this.querySelector('input[placeholder="Your Name"]').value;
+      const email = this.querySelector('input[placeholder="Your Email"]').value;
+      const message = this.querySelector('textarea').value;
+      const payload = {
+        username: "TITAN Contact",
+        content: `**Name:** ${name}\n**Email:** ${email}\n**Message:** ${message}`
+      };
+      fetch("https://discord.com/api/webhooks/1350146327534633011/inKYizuE5vuJ0KW836v0dIsPT8z8HkZYgffTyq8aCzuM41YZNnUQoKkPemBBGQyw9FLk", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(payload)
+      }).then(() => {
+        alert("Your tribute has been sent to TITAN. Prepare for the reckoning.");
+        contactForm.reset();
+      }).catch(() => {
+        alert("Failed to send tribute. Try again.");
+      });
     });
   }
 
