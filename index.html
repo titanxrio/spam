@@ -23,7 +23,7 @@
   <!-- Vollbild-Canvas für animierten Pixelhintergrund -->
   <canvas id="bgCanvas"></canvas>
 
-  <!-- Navigation (mit Parallax und Hover-Effekten) -->
+  <!-- Navigation mit Parallax-Scroll -->
   <header>
     <nav>
       <ul>
@@ -47,7 +47,6 @@
       <button id="enterBtn">Enter My Domain</button>
       <div class="scroll-indicator"><span class="arrow">&#8595;</span></div>
     </div>
-    <!-- Extra Overlays -->
     <div class="anim-overlay"></div>
   </section>
 
@@ -56,8 +55,8 @@
     <div class="content">
       <h2>About Me</h2>
       <p>
-        I code in Python (sometimes) – each keystroke shakes the digital cosmos.
-        My creations are revolutions in code; my style is absolute domination.
+        I code in Python (sometimes) – every keystroke ignites a revolution.
+        My creations are not mere code; they are declarations of absolute domination.
       </p>
       <div class="animated-lines">
         <span></span><span></span><span></span><span></span>
@@ -70,11 +69,10 @@
     <div class="content">
       <h2>ZEROBYTE</h2>
       <p>
-        Introducing ZEROBYTE – my groundbreaking project.
-        Say goodbye to boring rectangles – here organic, fluid shapes dance with innovation.
+        Introducing ZEROBYTE – my groundbreaking project in digital reselling.
+        Forget boring rectangles – here fluid, organic shapes morph in real time.
       </p>
       <div class="zerobyte-shapes">
-        <!-- Organische, unregelmäßige Formen -->
         <div class="shape circle"></div>
         <div class="shape blob"></div>
         <div class="shape wave"></div>
@@ -89,27 +87,27 @@
     <div class="content">
       <h2>DOMINATION</h2>
       <p>
-        Every line of code, every animation, every transition has been forged in the fires of conquest.
-        This is not just a website – it's the heartbeat of digital supremacy.
+        Every line of code, every transition, every animation is forged in the fires of conquest.
+        This is not just a website – it's the beating heart of digital supremacy.
       </p>
       <div class="dom-animation">
-        <!-- Komplexe animierte Formen -->
-        <div class="dom-shape"></div>
-        <div class="dom-shape"></div>
-        <div class="dom-shape"></div>
-        <div class="dom-shape"></div>
-        <div class="dom-shape"></div>
+        <!-- Komplexe, polygonale Formen mit 3D-Effekt -->
+        <div class="dom-shape poly"></div>
+        <div class="dom-shape poly"></div>
+        <div class="dom-shape poly"></div>
+        <div class="dom-shape poly"></div>
+        <div class="dom-shape poly"></div>
       </div>
     </div>
   </section>
 
-  <!-- PROJECTS SECTION (zusätzlicher Bereich) -->
+  <!-- PROJECTS SECTION -->
   <section id="projects" class="section projects-section">
     <div class="content">
       <h2>Projects</h2>
       <p>
         A showcase of my most brutal code masterpieces.
-        Every project is an exhibit of power and precision.
+        Each project is an exhibit of power and precision.
       </p>
       <div class="projects-grid">
         <div class="project-card">
@@ -149,6 +147,19 @@
         <a href="https://t.me/yourtelegram" target="_blank"><i class="fab fa-telegram"></i></a>
         <a href="https://discordapp.com/users/yourdiscordid" target="_blank"><i class="fab fa-discord"></i></a>
         <a href="https://discord.gg/yourdiscordserver" target="_blank"><i class="fab fa-discord"></i></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- AUDIO PLAYER SECTION -->
+  <section id="audioplayer" class="section audio-section">
+    <div class="content">
+      <h2>Sound of Domination</h2>
+      <p>Upload your track and let the beats fuel the revolution.</p>
+      <div class="audio-container">
+        <input type="file" id="audioFile" accept="audio/*">
+        <audio id="audioPlayer" controls></audio>
+        <canvas id="audioCanvas"></canvas>
       </div>
     </div>
   </section>
