@@ -2,15 +2,19 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>TITAN – I Am the Overlord</title>
+  <title>TITAN – The Absolute Overlord</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- Link to CSS -->
+  <!-- CSS -->
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <!-- Preloader -->
   <div id="preloader">
-    <div class="loader"></div>
+    <div class="loader">
+      <div class="loader-inner"></div>
+      <div class="loader-inner"></div>
+      <div class="loader-inner"></div>
+    </div>
   </div>
 
   <!-- Navigation -->
@@ -19,6 +23,8 @@
       <ul>
         <li><a href="#home" class="active">Home</a></li>
         <li><a href="#about">About Me</a></li>
+        <li><a href="#domination">Domination</a></li>
+        <li><a href="#contact">Contact</a></li>
       </ul>
     </nav>
   </header>
@@ -26,13 +32,18 @@
   <!-- Home Section -->
   <section id="home" class="section home-section">
     <div class="hero">
-      <h1 class="glitch" data-text="I AM TITAN">I AM TITAN</h1>
-      <p>Dominating the digital realm – fear the power of code.</p>
-      <button id="enterBtn">Enter the Domain</button>
+      <div class="glitch-container">
+        <h1 class="glitch" data-text="I AM TITAN">I AM TITAN</h1>
+      </div>
+      <p class="tagline">The Code Overlord – Where every keystroke shatters the limits.</p>
+      <button id="enterBtn">Enter My Domain</button>
       <div class="scroll-indicator">
-        <span>&darr;</span>
+        <span class="arrow">&#8595;</span>
       </div>
     </div>
+    <!-- Extra Animation Elements -->
+    <div class="particles"></div>
+    <div class="anim-overlay"></div>
   </section>
 
   <!-- About Me Section -->
@@ -40,18 +51,63 @@
     <div class="content">
       <h2>About Me</h2>
       <p>
-        I love to code in Python (sometimes) and every keystroke shakes the digital world.
-        My work isn’t just code – it’s a declaration of dominance. When you see my creation, you know: TITAN reigns supreme.
+        I code in Python (sometimes) and every line I write is a revolution.
+        My passion is unmatched, my work transcends ordinary code – it’s pure domination.
+        When you witness my creation, you know that TITAN reigns supreme in the digital realm.
       </p>
+      <div class="animated-lines">
+        <span></span><span></span><span></span><span></span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Domination Section -->
+  <section id="domination" class="section domination-section">
+    <div class="content">
+      <h2>Domination</h2>
+      <p>
+        Every pixel, every animation, every transition has been engineered to strike fear into the hearts of the weak.
+        This is not just a website – it's a declaration of absolute power.
+      </p>
+      <div class="dom-animation">
+        <div class="dom-box"></div>
+        <div class="dom-box"></div>
+        <div class="dom-box"></div>
+        <div class="dom-box"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="section contact-section">
+    <div class="content">
+      <h2>Contact the Overlord</h2>
+      <p>
+        Dare to reach out if you believe you can handle the power.
+        Your message will be etched into the digital history of TITAN.
+      </p>
+      <form id="contactForm">
+        <input type="text" placeholder="Your Name" required>
+        <input type="email" placeholder="Your Email" required>
+        <textarea placeholder="Your Message" required></textarea>
+        <button type="submit">Send Your Tribute</button>
+      </form>
+      <div class="social-icons">
+        <a href="https://t.me/yourtelegram" target="_blank"><i class="fab fa-telegram fa-2x"></i></a>
+        <a href="https://discordapp.com/users/yourdiscordid" target="_blank"><i class="fab fa-discord fa-2x"></i></a>
+        <a href="https://discord.gg/yourdiscordserver" target="_blank"><i class="fab fa-discord fa-2x"></i></a>
+      </div>
     </div>
   </section>
 
   <!-- Footer -->
   <footer>
-    <p>&copy; 2025 TITAN. All Rights Reserved.</p>
+    <p>&copy; 2025 TITAN. All Rights Reserved. All shall bow.</p>
   </footer>
 
-  <!-- Link to JavaScript -->
+  <!-- JavaScript -->
   <script src="script.js"></script>
+  <!-- Font Awesome for icons -->
+  <script src="https://kit.fontawesome.com/yourkitid.js" crossorigin="anonymous"></script>
 </body>
 </html>
