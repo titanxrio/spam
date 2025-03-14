@@ -2,183 +2,110 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>TITAN – 100% DOMINATION</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- Externe CSS & Fonts -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>TITAN SERVICE | DIGITAL DOMINANCE</title>
+  <!-- Futuristic Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
-  <!-- Font Awesome für ikonische Social-Icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
-  <!-- Ultra-Epic Preloader -->
-  <div id="preloader">
-    <div class="loader">
-      <div class="loader-inner"></div>
-      <div class="loader-inner"></div>
-      <div class="loader-inner"></div>
-      <div class="loader-inner"></div>
-    </div>
+  <!-- Entrance Screen: Boot-Up Sequence -->
+  <div id="entrance">
+    <h1 class="neon">Accessing: TITAN NETWORK</h1>
   </div>
-
-  <!-- Vollbild-Canvas für animierten Pixelhintergrund -->
-  <canvas id="bgCanvas"></canvas>
-
-  <!-- Navigation -->
-  <header>
-    <nav>
-      <ul>
-        <li><a href="#home" class="active">Home</a></li>
-        <li><a href="#about">About Me</a></li>
-        <li><a href="#zerobyte">Zerobyte</a></li>
-        <li><a href="#domination">Domination</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#contact">Contact</a></li>
-        <li><a href="#audioplayer">Audio</a></li>
-      </ul>
-    </nav>
-  </header>
-
-  <!-- HOME SECTION -->
-  <section id="home" class="section home-section">
-    <div class="hero">
-      <div class="glitch-container">
-        <h1 class="glitch" data-text="I AM TITAN">I AM TITAN</h1>
+  
+  <!-- Navigation: The Command Center -->
+  <nav id="navigation">
+    <ul>
+      <li onclick="scrollToSection('who')">Who I Am</li>
+      <li onclick="scrollToSection('projects')">Projects</li>
+      <li onclick="scrollToSection('music')">Music</li>
+      <li onclick="scrollToSection('gaming')">Gaming</li>
+      <li onclick="scrollToSection('contact')">Contact</li>
+    </ul>
+  </nav>
+  
+  <!-- Main Content: The Digital Kingdom -->
+  <div id="main-content">
+    <!-- Boot Sequence: The Grand Entrance -->
+    <section id="boot-sequence">
+      <div class="content">
+        <h2 class="neon section-title">PAUL – THE TITAN OF THE DIGITAL WORLD</h2>
+        <p class="neon">Cybersecurity. Pentesting. Code Mastery. Gaming. Music. Total Domination.</p>
       </div>
-      <p class="tagline">100% DOMINATION – Every pixel pulses with raw power.</p>
-      <button id="enterBtn">Enter My Domain</button>
-      <div class="scroll-indicator"><span class="arrow">&#8595;</span></div>
-    </div>
-    <div class="anim-overlay"></div>
-  </section>
-
-  <!-- ABOUT ME SECTION -->
-  <section id="about" class="section about-section">
-    <div class="content">
-      <h2>About Me</h2>
-      <p>
-        I code in Python (sometimes) – every keystroke ignites a revolution.
-        My creations are declarations of absolute domination.
-      </p>
-      <div class="animated-lines">
-        <span></span><span></span><span></span><span></span>
+    </section>
+    
+    <!-- Who I Am: The Digital Ghost -->
+    <section id="who">
+      <div class="content">
+        <h2 class="neon section-title">Who I Am – The Digital Ghost</h2>
+        <p class="neon">
+          I create what others fear to build. I break what others think is unbreakable.
+          I listen to the sounds that fuel my ambition.
+          I live in code, in the pulse of the digital world.
+          I play to win. I design to rule.
+          I don’t just use technology—I bend it to my will.
+        </p>
       </div>
-    </div>
-  </section>
-
-  <!-- ZEROBYTE SECTION -->
-  <section id="zerobyte" class="section zerobyte-section">
-    <div class="content">
-      <h2>ZEROBYTE</h2>
-      <p>
-        Introducing ZEROBYTE – my groundbreaking project in digital reselling.
-        Here, organic, fluid shapes dance with innovation.
-      </p>
-      <div class="zerobyte-shapes">
-        <div class="shape circle"></div>
-        <div class="shape blob"></div>
-        <div class="shape wave"></div>
-        <div class="shape circle"></div>
-        <div class="shape blob"></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- DOMINATION SECTION -->
-  <section id="domination" class="section domination-section">
-    <div class="content">
-      <h2>DOMINATION</h2>
-      <p>
-        Every transition, every animation is forged in the fires of conquest.
-        This is not just a website – it's the heartbeat of digital supremacy.
-      </p>
-      <div class="dom-animation">
-        <!-- Glatte, organische Formen -->
-        <div class="dom-shape smooth"></div>
-        <div class="dom-shape smooth"></div>
-        <div class="dom-shape smooth"></div>
-        <div class="dom-shape smooth"></div>
-        <div class="dom-shape smooth"></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- PROJECTS SECTION -->
-  <section id="projects" class="section projects-section">
-    <div class="content">
-      <h2>Projects</h2>
-      <p>
-        A showcase of my most brutal code masterpieces.
-        Each project is an exhibit of power and precision.
-      </p>
-      <div class="projects-grid">
-        <div class="project-card">
-          <img src="project1.jpg" alt="Project Alpha">
-          <h3>Project Alpha</h3>
-          <p>Revolutionary and relentless.</p>
-        </div>
-        <div class="project-card">
-          <img src="project2.jpg" alt="Project Beta">
-          <h3>Project Beta</h3>
-          <p>Unstoppable innovation.</p>
-        </div>
-        <div class="project-card">
-          <img src="project3.jpg" alt="Project Gamma">
-          <h3>Project Gamma</h3>
-          <p>Mastery in motion.</p>
+    </section>
+    
+    <!-- Projects & Legacy: The Architect of Power -->
+    <section id="projects">
+      <div class="content">
+        <h2 class="neon section-title">Projects & Legacy – The Architect of Power</h2>
+        <div class="grid">
+          <div class="grid-item">Project 1<br><small>Glitching into existence...</small></div>
+          <div class="grid-item">Project 2<br><small>Emerging from the void...</small></div>
+          <div class="grid-item">Project 3<br><small>Forged in digital flames...</small></div>
+          <div class="grid-item">Project 4<br><small>Born from the code...</small></div>
         </div>
       </div>
-    </div>
-  </section>
-
-  <!-- CONTACT SECTION -->
-  <section id="contact" class="section contact-section">
-    <div class="content">
-      <h2>Contact the Overlord</h2>
-      <p>
-        Dare to reach out if you can harness this power.
-        Send your message and join the revolution.
-      </p>
-      <form id="contactForm">
-        <input type="text" placeholder="Your Name" required>
-        <input type="email" placeholder="Your Email" required>
-        <textarea placeholder="Your Message" required></textarea>
-        <button type="submit">Send Your Tribute</button>
-      </form>
-      <div class="social-icons">
-        <a href="https://t.me/yourtelegram" target="_blank"><i class="fab fa-telegram"></i></a>
-        <a href="https://discordapp.com/users/yourdiscordid" target="_blank"><i class="fab fa-discord"></i></a>
-        <a href="https://discord.gg/yourdiscordserver" target="_blank"><i class="fab fa-discord"></i></a>
+    </section>
+    
+    <!-- Music & Energy: The Sound of the System -->
+    <section id="music">
+      <div class="content">
+        <h2 class="neon section-title">Music & Energy – The Sound of the System</h2>
+        <div id="music-visualizer"></div>
+        <p class="neon">RAP | HARDSTYLE | TECHNO | SYNTHWAVE</p>
       </div>
-    </div>
-  </section>
-
-  <!-- AUDIO PLAYER SECTION -->
-  <section id="audioplayer" class="section audio-section">
-    <div class="content">
-      <h2>Sound of Domination</h2>
-      <p>Experience the beats that fuel the revolution.</p>
-      <div class="audio-container">
-        <div class="custom-audio-player">
-          <!-- Custom Controls -->
-          <audio id="audioPlayer" controls></audio>
-          <canvas id="audioCanvas"></canvas>
+    </section>
+    
+    <!-- Gaming & Tech: A Digital Battlefield -->
+    <section id="gaming">
+      <div class="content">
+        <h2 class="neon section-title">Gaming & Tech – A Digital Battlefield</h2>
+        <div class="grid">
+          <div class="grid-item">Game 1<br><small>Legendary moments...</small></div>
+          <div class="grid-item">Game 2<br><small>Cybernetic evolution...</small></div>
+          <div class="grid-item">Game 3<br><small>Epic battles...</small></div>
+          <div class="grid-item">Game 4<br><small>Hidden Easter eggs...</small></div>
         </div>
-        <!-- Playlist als Liste – ohne "Track One" etc., einfach eine Liste -->
-        <ul class="playlist">
-          <li data-src="track1.mp3">Song A</li>
-          <li data-src="track2.mp3">Song B</li>
-          <li data-src="track3.mp3">Song C</li>
-        </ul>
       </div>
-    </div>
-  </section>
-
-  <!-- FOOTER -->
-  <footer>
-    <p>&copy; 2025 TITAN. All Rights Reserved. Bow before the Overlord.</p>
-  </footer>
-
-  <!-- JavaScript -->
+    </section>
+    
+    <!-- Contact & Network: The Elite Gateway -->
+    <section id="contact">
+      <div class="content">
+        <h2 class="neon section-title">Contact & Network – Only for the Elite</h2>
+        <form onsubmit="return validatePasscode(event)">
+          <input type="password" id="passcode" placeholder="Enter Passcode" required>
+          <button type="submit">Access Network</button>
+        </form>
+      </div>
+    </section>
+    
+    <!-- Finale: The Unshatterable Code -->
+    <footer>
+      <div class="neon">
+        This is not a website. This is a statement of digital superiority.
+        You have witnessed the future.
+        You have seen what it means to dominate in cyberspace.
+        This is TITAN. Welcome to the new era.
+      </div>
+    </footer>
+  </div>
+  
   <script src="script.js"></script>
 </body>
 </html>
