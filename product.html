@@ -2,38 +2,64 @@
 <html lang="de">
 <head>
   <meta charset="UTF-8">
-  <title>TS - Produkte</title>
+  <title>TS - Products</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="styles.css">
+  <!-- AOS Library -->
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
 </head>
 <body>
   <header>
     <nav>
       <ul>
         <li><a href="index.html">Home</a></li>
-        <li><a href="product.html" class="active">Produkte</a></li>
-        <li><a href="contact.html">Kontakt</a></li>
+        <li><a href="product.html" class="active">Products</a></li>
+        <li><a href="contact.html">Contact</a></li>
       </ul>
     </nav>
   </header>
-  <section class="products">
-    <h1>Unsere Produkte</h1>
-    <div class="product-grid">
-      <div class="product-card">
-        <h2>Produkt 1</h2>
-        <p>Das krasseste Produkt, das du je gesehen hast.</p>
+
+  <main>
+    <!-- Products Section with Zoom-in Effects -->
+    <section class="products" data-aos="fade-up" data-aos-duration="1500">
+      <h1>Our Elite Products</h1>
+      <div class="product-grid">
+        <div class="product-card" data-aos="zoom-in" data-aos-duration="1000">
+          <h2>Product Alpha</h2>
+          <p>Cutting-edge security meets blazing speed.</p>
+        </div>
+        <div class="product-card" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="100">
+          <h2>Product Beta</h2>
+          <p>Next-level performance with unbreakable stability.</p>
+        </div>
+        <div class="product-card" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="200">
+          <h2>Product Gamma</h2>
+          <p>Revolutionizing cyberspace with flawless design.</p>
+        </div>
+        <div class="product-card" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="300">
+          <h2>Product Delta</h2>
+          <p>Dark power and superior control in every line of code.</p>
+        </div>
+        <div class="product-card" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="400">
+          <h2>Product Epsilon</h2>
+          <p>Master the art of secure performance.</p>
+        </div>
+        <div class="product-card" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="500">
+          <h2>Product Zeta</h2>
+          <p>Unrivaled efficiency for the ultimate digital warrior.</p>
+        </div>
       </div>
-      <div class="product-card">
-        <h2>Produkt 2</h2>
-        <p>Innovativ, revolutionär und absolut unaufhaltsam.</p>
-      </div>
-      <div class="product-card">
-        <h2>Produkt 3</h2>
-        <p>High-Performance pur – designed, um zu dominieren.</p>
-      </div>
-    </div>
-  </section>
+    </section>
+  </main>
+
   <footer>
-    <p>&copy; 2025 TS. Alle Rechte vorbehalten.</p>
+    <p>&copy; 2025 TS. All Rights Reserved.</p>
   </footer>
+
+  <!-- AOS Script -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init();
+  </script>
 </body>
 </html>
