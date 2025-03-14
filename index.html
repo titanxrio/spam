@@ -20,10 +20,10 @@
     </div>
   </div>
 
-  <!-- Fullscreen Canvas für animierten Pixelhintergrund -->
+  <!-- Vollbild-Canvas für animierten Pixelhintergrund -->
   <canvas id="bgCanvas"></canvas>
 
-  <!-- Navigation mit Parallax-Scroll -->
+  <!-- Navigation (mit Parallax und Hover-Effekten) -->
   <header>
     <nav>
       <ul>
@@ -31,6 +31,7 @@
         <li><a href="#about">About Me</a></li>
         <li><a href="#zerobyte">Zerobyte</a></li>
         <li><a href="#domination">Domination</a></li>
+        <li><a href="#projects">Projects</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
     </nav>
@@ -42,11 +43,11 @@
       <div class="glitch-container">
         <h1 class="glitch" data-text="I AM TITAN">I AM TITAN</h1>
       </div>
-      <p class="tagline">100% DOMINATION – Every pixel is alive, every code pulses with power.</p>
+      <p class="tagline">100% DOMINATION – Every pixel pulses with raw power.</p>
       <button id="enterBtn">Enter My Domain</button>
       <div class="scroll-indicator"><span class="arrow">&#8595;</span></div>
     </div>
-    <!-- Zusätzliche Animationselemente -->
+    <!-- Extra Overlays -->
     <div class="anim-overlay"></div>
   </section>
 
@@ -55,9 +56,8 @@
     <div class="content">
       <h2>About Me</h2>
       <p>
-        I code in Python (sometimes) and every keystroke ignites a revolution.
-        My work is not just code – it’s a declaration of absolute dominance.
-        When you see my creation, you know: TITAN rules the digital universe.
+        I code in Python (sometimes) – each keystroke shakes the digital cosmos.
+        My creations are revolutions in code; my style is absolute domination.
       </p>
       <div class="animated-lines">
         <span></span><span></span><span></span><span></span>
@@ -65,16 +65,22 @@
     </div>
   </section>
 
-  <!-- ZEROBYTE SECTION – NEUES PROJEKT -->
+  <!-- ZEROBYTE SECTION (NEUES PROJEKT) -->
   <section id="zerobyte" class="section zerobyte-section">
     <div class="content">
       <h2>ZEROBYTE</h2>
       <p>
-        Introducing ZEROBYTE – my groundbreaking new project.
-        A revolution in digital reselling and innovation where every pixel pulses with energy.
+        Introducing ZEROBYTE – my groundbreaking project.
+        Say goodbye to boring rectangles – here organic, fluid shapes dance with innovation.
       </p>
-      <!-- Statt pulsierender Vierecke: Dynamische, fließende Partikel -->
-      <div class="zerobyte-particles"></div>
+      <div class="zerobyte-shapes">
+        <!-- Organische, unregelmäßige Formen -->
+        <div class="shape circle"></div>
+        <div class="shape blob"></div>
+        <div class="shape wave"></div>
+        <div class="shape circle"></div>
+        <div class="shape blob"></div>
+      </div>
     </div>
   </section>
 
@@ -83,16 +89,44 @@
     <div class="content">
       <h2>DOMINATION</h2>
       <p>
-        Every line, every transition, every animation has been forged in the fires of conquest.
-        This is not just a website – it’s the very heartbeat of digital supremacy.
+        Every line of code, every animation, every transition has been forged in the fires of conquest.
+        This is not just a website – it's the heartbeat of digital supremacy.
       </p>
       <div class="dom-animation">
-        <!-- Statt simpler Vierecke: Komplexe animierte Formen -->
+        <!-- Komplexe animierte Formen -->
         <div class="dom-shape"></div>
         <div class="dom-shape"></div>
         <div class="dom-shape"></div>
         <div class="dom-shape"></div>
         <div class="dom-shape"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS SECTION (zusätzlicher Bereich) -->
+  <section id="projects" class="section projects-section">
+    <div class="content">
+      <h2>Projects</h2>
+      <p>
+        A showcase of my most brutal code masterpieces.
+        Every project is an exhibit of power and precision.
+      </p>
+      <div class="projects-grid">
+        <div class="project-card">
+          <img src="project1.jpg" alt="Project Alpha">
+          <h3>Project Alpha</h3>
+          <p>Revolutionary and relentless.</p>
+        </div>
+        <div class="project-card">
+          <img src="project2.jpg" alt="Project Beta">
+          <h3>Project Beta</h3>
+          <p>Unstoppable innovation.</p>
+        </div>
+        <div class="project-card">
+          <img src="project3.jpg" alt="Project Gamma">
+          <h3>Project Gamma</h3>
+          <p>Mastery in motion.</p>
+        </div>
       </div>
     </div>
   </section>
@@ -102,7 +136,7 @@
     <div class="content">
       <h2>Contact the Overlord</h2>
       <p>
-        Dare to reach out if you can handle the power.
+        Dare to reach out if you believe you can harness this power.
         Send your message and join the revolution – if you have the courage.
       </p>
       <form id="contactForm">
