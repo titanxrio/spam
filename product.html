@@ -4,60 +4,70 @@
   <meta charset="UTF-8">
   <title>TS - Products</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="styles.css">
-  <!-- AOS Library -->
+  <!-- AOS Animation Library -->
   <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
   <header>
     <nav>
       <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="product.html" class="active">Products</a></li>
-        <li><a href="contact.html">Contact</a></li>
+         <li><a href="index.html">Home</a></li>
+         <li><a href="product.html" class="active">Products</a></li>
+         <li><a href="contact.html">Contact</a></li>
       </ul>
     </nav>
   </header>
-
+  
   <main>
-    <!-- Products Section with Zoom-in Effects -->
+    <!-- Products Section with interaktiven Overlays -->
     <section class="products" data-aos="fade-up" data-aos-duration="1500">
-      <h1>Our Elite Products</h1>
-      <div class="product-grid">
-        <div class="product-card" data-aos="zoom-in" data-aos-duration="1000">
-          <h2>Product Alpha</h2>
-          <p>Cutting-edge security meets blazing speed.</p>
-        </div>
-        <div class="product-card" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="100">
-          <h2>Product Beta</h2>
-          <p>Next-level performance with unbreakable stability.</p>
-        </div>
-        <div class="product-card" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="200">
-          <h2>Product Gamma</h2>
-          <p>Revolutionizing cyberspace with flawless design.</p>
-        </div>
-        <div class="product-card" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="300">
-          <h2>Product Delta</h2>
-          <p>Dark power and superior control in every line of code.</p>
-        </div>
-        <div class="product-card" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="400">
-          <h2>Product Epsilon</h2>
-          <p>Master the art of secure performance.</p>
-        </div>
-        <div class="product-card" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="500">
-          <h2>Product Zeta</h2>
-          <p>Unrivaled efficiency for the ultimate digital warrior.</p>
-        </div>
-      </div>
+       <h1>Our Premium Products</h1>
+       <div class="product-grid">
+         <!-- Produktkarten – on hover vergrößert sich alles; on click öffnet sich ein Modal -->
+         <div class="product-card" data-aos="zoom-in" data-aos-duration="1000" onclick="openModal(this)">
+           <img src="product1.png" alt="Product Alpha">
+           <h2>Product Alpha</h2>
+           <p>Exquisite performance with unmatched reliability.</p>
+         </div>
+         <div class="product-card" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="100" onclick="openModal(this)">
+           <img src="product2.png" alt="Product Beta">
+           <h2>Product Beta</h2>
+           <p>Innovative design meets robust engineering.</p>
+         </div>
+         <div class="product-card" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="200" onclick="openModal(this)">
+           <img src="product3.png" alt="Product Gamma">
+           <h2>Product Gamma</h2>
+           <p>Next-level integration for the modern era.</p>
+         </div>
+         <div class="product-card" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="300" onclick="openModal(this)">
+           <img src="product4.png" alt="Product Delta">
+           <h2>Product Delta</h2>
+           <p>Engineered to perfection with supreme clarity.</p>
+         </div>
+         <!-- Weitere Produktkarten können hier hinzugefügt werden -->
+       </div>
     </section>
   </main>
-
+  
+  <!-- Modal Overlay für vergrößerte Produktansicht -->
+  <div id="modal" class="modal" onclick="closeModal(event)">
+    <div class="modal-content">
+      <span class="close-btn" onclick="closeModal(event)">&times;</span>
+      <img id="modal-img" src="" alt="">
+      <div id="modal-text">
+         <!-- Optional: Weitere Produktdetails -->
+      </div>
+    </div>
+  </div>
+  
   <footer>
     <p>&copy; 2025 TS. All Rights Reserved.</p>
   </footer>
-
-  <!-- AOS Script -->
+  
+  <!-- Scripts -->
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script src="script.js"></script>
   <script>
     AOS.init();
   </script>
