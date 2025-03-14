@@ -56,7 +56,7 @@ nav ul li a:hover, nav ul li a.active { color: #fff; }
 @keyframes glitchTop { 0% { transform: translate(0); } 20% { transform: translate(-4px, -4px); } 40% { transform: translate(-4px, 4px); } 60% { transform: translate(4px, -4px); } 80% { transform: translate(4px, 4px); } 100% { transform: translate(0); } }
 @keyframes glitchBottom { 0% { transform: translate(0); } 20% { transform: translate(4px, 4px); } 40% { transform: translate(4px, -4px); } 60% { transform: translate(-4px, 4px); } 80% { transform: translate(-4px, -4px); } 100% { transform: translate(0); } }
 
-/* CANVAS-PARTIKEL */
+/* CANVAS-PARTIKEL-HINTERGRUND */
 #bgCanvas { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -2; }
 
 /* ANIM OVERLAY */
@@ -90,7 +90,7 @@ nav ul li a:hover, nav ul li a.active { color: #fff; }
 .dom-animation { display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; }
 .dom-shape.smooth {
   width: 180px; height: 180px; background: radial-gradient(circle, #1e90ff, #000);
-  border-radius: 50%; /* Rund und organisch */
+  border-radius: 50%;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   animation: domSmoothPulse 3s infinite;
 }
@@ -130,7 +130,7 @@ nav ul li a:hover, nav ul li a.active { color: #fff; }
 #audioPlayer { width: 100%; appearance: none; background: #1e90ff; border: 2px solid #fff; border-radius: 8px; outline: none; }
 #audioPlayer::-webkit-media-controls-panel { background: #1e90ff; border-radius: 8px; }
 #audioCanvas { width: 90%; height: 150px; background: #111; border: 2px solid #1e90ff; border-radius: 10px; }
-.playlist { list-style: none; padding: 0; margin-top: 20px; }
+.playlist { list-style: none; padding: 0; margin-top: 20px; width: 350px; }
 .playlist li { font-size: 1.8rem; padding: 10px; margin: 5px 0; background: #222; border-radius: 8px; cursor: pointer; transition: background 0.3s; }
 .playlist li:hover { background: #1e90ff; color: #000; }
 
